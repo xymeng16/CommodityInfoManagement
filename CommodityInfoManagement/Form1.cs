@@ -15,6 +15,7 @@ namespace CommodityInfoManagement
         public Form1()
         {
             InitializeComponent();
+            Utility.TestDBConnection();
         }
     }
 }
