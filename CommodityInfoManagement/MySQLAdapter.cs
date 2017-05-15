@@ -61,7 +61,7 @@ public class MySqlAdapter : IDisposable
         return dataSet.Tables[0].DefaultView;
     }
 
-    public DataRow GetDataRow(string tSql, bool useProc)
+    public DataRow GetDataRow(string tSql, bool useProc = false)
     {
         MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter();
         SqlComm.CommandText = tSql;
