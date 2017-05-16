@@ -16,6 +16,13 @@ namespace CommodityInfoManagement
         {
             InitializeComponent();
             Utility.TestDBConnection();
+            comboBox1.Items.Add("ALL");
+            comboBox1.Items.Add("GOODS A");
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
