@@ -10,16 +10,13 @@ using System.Windows.Forms;
 
 namespace CommodityInfoManagement
 {
-    public partial class My_products : Form
+    public partial class Product_Card : Form
     {
-        public My_products()
+        public Product_Card()
         {
             InitializeComponent();
-        }
-
-        private void My_products_Load(object sender, EventArgs e)
-        {
-
+            comboBox2.Items.Add("A");
+            comboBox2.Items.Add("B");
         }
     }
 }
