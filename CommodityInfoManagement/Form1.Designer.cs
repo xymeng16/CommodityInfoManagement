@@ -49,6 +49,7 @@
             this.sign_in = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -220,21 +221,21 @@
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("宋体", 10F);
-            this.button7.Location = new System.Drawing.Point(546, 591);
+            this.button7.Location = new System.Drawing.Point(590, 591);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(71, 24);
             this.button7.TabIndex = 9;
-            this.button7.Text = "购买";
+            this.button7.Text = "下架";
             this.button7.UseVisualStyleBackColor = true;
             // 
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("宋体", 10F);
-            this.button8.Location = new System.Drawing.Point(632, 591);
+            this.button8.Location = new System.Drawing.Point(700, 591);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(145, 23);
+            this.button8.Size = new System.Drawing.Size(71, 23);
             this.button8.TabIndex = 10;
-            this.button8.Text = "管理我的商品";
+            this.button8.Text = "修改";
             this.button8.UseVisualStyleBackColor = true;
             // 
             // sign_in
@@ -244,7 +245,7 @@
             this.sign_in.Name = "sign_in";
             this.sign_in.Size = new System.Drawing.Size(76, 27);
             this.sign_in.TabIndex = 11;
-            this.sign_in.Text = "登陆";
+            this.sign_in.Text = "注销";
             this.sign_in.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -262,12 +263,22 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("宋体", 10F);
-            this.button2.Location = new System.Drawing.Point(443, 591);
+            this.button2.Location = new System.Drawing.Point(35, 590);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(84, 24);
             this.button2.TabIndex = 12;
             this.button2.Text = "查看详情";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Font = new System.Drawing.Font("宋体", 10F);
+            this.button9.Location = new System.Drawing.Point(481, 591);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(71, 24);
+            this.button9.TabIndex = 13;
+            this.button9.Text = "上架";
+            this.button9.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -275,6 +286,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(824, 627);
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.sign_in);
             this.Controls.Add(this.button8);
@@ -318,6 +330,7 @@
         private System.Windows.Forms.Button sign_in;
         public System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button9;
     }
 }
 
