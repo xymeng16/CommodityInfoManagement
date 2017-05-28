@@ -13,14 +13,21 @@ namespace CommodityInfoManagement
         ADMIN,
         SUPERUSER
     };
-    class User
+    public class User
     {
         private string __username;
-        private USER_ROLE __role;
+        private string __role;
         private DateTime __datetime;
 
         public string Username { get => __username; set => __username = value; }
-        public USER_ROLE Role { get => __role; set => __role = value; }
+        public string Role { get => __role; set => __role = value; }
         public DateTime Datetime { get => __datetime; set => __datetime = value; }
+
+        public User(string username, string role, DateTime datetime)
+        {
+            Username = username;
+            Role = role;
+            Datetime = datetime;
+        }
     }
 }

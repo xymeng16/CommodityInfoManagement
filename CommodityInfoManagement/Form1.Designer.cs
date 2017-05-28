@@ -1,6 +1,6 @@
 ﻿namespace CommodityInfoManagement
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -247,8 +247,9 @@
             this.sign_in.Name = "sign_in";
             this.sign_in.Size = new System.Drawing.Size(76, 27);
             this.sign_in.TabIndex = 11;
-            this.sign_in.Text = "注销";
+            this.sign_in.Text = "切换用户";
             this.sign_in.UseVisualStyleBackColor = true;
+            this.sign_in.Click += new System.EventHandler(this.sign_in_Click);
             // 
             // button1
             // 
@@ -260,6 +261,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "个人信息";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -303,7 +305,7 @@
             this.button10.Text = "用户管理";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -321,7 +323,7 @@
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "SHOP";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

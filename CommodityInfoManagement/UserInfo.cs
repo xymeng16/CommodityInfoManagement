@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace CommodityInfoManagement
 {
-    public partial class MainForm : Form
+    public partial class UserInfo : Form
     {
-        public MainForm()
+        public UserInfo(User user)
         {
             InitializeComponent();
+            username.Text = user.Username;
+            createTime.Text = user.Datetime.ToString();
         }
     }
 }

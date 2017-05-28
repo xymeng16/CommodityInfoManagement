@@ -10,12 +10,13 @@ using System.Windows.Forms;
 
 namespace CommodityInfoManagement
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        private User currentUser;
+        public MainForm(User user)
         {
             InitializeComponent();
-            Utility.TestDBConnection();
+            currentUser = user;
             comboBox1.Items.Add("ALL");
             comboBox1.Items.Add("GOODS A");
         }
@@ -23,6 +24,17 @@ namespace CommodityInfoManagement
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            (new UserInfo(currentUser)).Show();
+        }
+
+        private void sign_in_Click(object sender, EventArgs e)
+        {
+            Login.self.Show();
+            this.Close();
         }
     }
 }
