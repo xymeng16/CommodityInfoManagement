@@ -77,6 +77,14 @@ create table comm_storage_rack(
     on delete cascade on update cascade
 )engine=innodb;
 
+-- Table: Commodity Not Stored (comm_not_stored)
+create table comm_not_stored(
+	comm_id smallint not null,
+    comm_remaining_amount int not null,
+    foreign key(comm_id) references comm_info(comm_id)
+    on delete cascade on update cascade
+);
+
 -- Insert authority
 insert into comm_authority
 values(null, 'READ');

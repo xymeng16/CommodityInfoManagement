@@ -50,6 +50,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -87,7 +89,7 @@
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Font = new System.Drawing.Font("宋体", 10F);
+            this.groupBox1.Font = new System.Drawing.Font("SimSun", 10F);
             this.groupBox1.Location = new System.Drawing.Point(35, 59);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(334, 109);
@@ -106,7 +108,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.low_price);
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Font = new System.Drawing.Font("宋体", 10F);
+            this.groupBox2.Font = new System.Drawing.Font("SimSun", 10F);
             this.groupBox2.Location = new System.Drawing.Point(420, 59);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(363, 109);
@@ -201,10 +203,10 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Font = new System.Drawing.Font("宋体", 10F);
+            this.groupBox3.Font = new System.Drawing.Font("SimSun", 10F);
             this.groupBox3.Location = new System.Drawing.Point(35, 189);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(747, 387);
+            this.groupBox3.Size = new System.Drawing.Size(748, 395);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "搜索结果";
@@ -220,7 +222,7 @@
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("宋体", 10F);
+            this.button7.Font = new System.Drawing.Font("SimSun", 10F);
             this.button7.Location = new System.Drawing.Point(590, 591);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(71, 24);
@@ -230,7 +232,7 @@
             // 
             // button8
             // 
-            this.button8.Font = new System.Drawing.Font("宋体", 10F);
+            this.button8.Font = new System.Drawing.Font("SimSun", 10F);
             this.button8.Location = new System.Drawing.Point(700, 591);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(71, 23);
@@ -240,7 +242,7 @@
             // 
             // sign_in
             // 
-            this.sign_in.Font = new System.Drawing.Font("宋体", 10F);
+            this.sign_in.Font = new System.Drawing.Font("SimSun", 10F);
             this.sign_in.Location = new System.Drawing.Point(700, 12);
             this.sign_in.Name = "sign_in";
             this.sign_in.Size = new System.Drawing.Size(76, 27);
@@ -251,18 +253,17 @@
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Enabled = false;
-            this.button1.Font = new System.Drawing.Font("宋体", 10F);
-            this.button1.Location = new System.Drawing.Point(35, 12);
+            this.button1.Font = new System.Drawing.Font("SimSun", 10F);
+            this.button1.Location = new System.Drawing.Point(590, 11);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 28);
+            this.button1.Size = new System.Drawing.Size(84, 28);
             this.button1.TabIndex = 0;
-            this.button1.Text = "商品搜索";
+            this.button1.Text = "个人信息";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("宋体", 10F);
+            this.button2.Font = new System.Drawing.Font("SimSun", 10F);
             this.button2.Location = new System.Drawing.Point(35, 590);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(84, 24);
@@ -272,13 +273,35 @@
             // 
             // button9
             // 
-            this.button9.Font = new System.Drawing.Font("宋体", 10F);
+            this.button9.Font = new System.Drawing.Font("SimSun", 10F);
             this.button9.Location = new System.Drawing.Point(481, 591);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(71, 24);
             this.button9.TabIndex = 13;
             this.button9.Text = "上架";
             this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Font = new System.Drawing.Font("SimSun", 10F);
+            this.button11.Location = new System.Drawing.Point(162, 590);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(84, 24);
+            this.button11.TabIndex = 12;
+            this.button11.Text = "购买";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.button10.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.button10.Font = new System.Drawing.Font("SimSun", 10F);
+            this.button10.Location = new System.Drawing.Point(41, 11);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(84, 28);
+            this.button10.TabIndex = 0;
+            this.button10.Text = "用户管理";
+            this.button10.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -287,6 +310,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(824, 627);
             this.Controls.Add(this.button9);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.sign_in);
             this.Controls.Add(this.button8);
@@ -294,8 +318,9 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.button1);
-            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "Form1";
             this.Text = "SHOP";
             this.groupBox1.ResumeLayout(false);
@@ -331,6 +356,8 @@
         public System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button11;
+        public System.Windows.Forms.Button button10;
     }
 }
 
