@@ -114,5 +114,8 @@
   <ItemGroup>
     <Folder Include="Dependencies\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="db_init.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
