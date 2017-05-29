@@ -16,7 +16,8 @@ namespace CommodityInfoManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            //Application.Run(new Login());
+            Application.Run(new MainForm(new User("su", "SU", DateTime.Now)));
         }
     }
 }

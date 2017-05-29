@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.comm_search_text = new System.Windows.Forms.TextBox();
+            this.comm_search = new System.Windows.Forms.Button();
+            this.comm_search_category = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -43,7 +44,7 @@
             this.low_price = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.search_result = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.sign_in = new System.Windows.Forms.Button();
@@ -55,41 +56,42 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.search_result)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // comm_search_text
             // 
-            this.textBox1.Location = new System.Drawing.Point(25, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 23);
-            this.textBox1.TabIndex = 2;
+            this.comm_search_text.Location = new System.Drawing.Point(25, 22);
+            this.comm_search_text.Name = "comm_search_text";
+            this.comm_search_text.Size = new System.Drawing.Size(173, 23);
+            this.comm_search_text.TabIndex = 2;
             // 
-            // button3
+            // comm_search
             // 
-            this.button3.Location = new System.Drawing.Point(227, 22);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "搜索";
-            this.button3.UseVisualStyleBackColor = true;
+            this.comm_search.Location = new System.Drawing.Point(227, 22);
+            this.comm_search.Name = "comm_search";
+            this.comm_search.Size = new System.Drawing.Size(75, 23);
+            this.comm_search.TabIndex = 3;
+            this.comm_search.Text = "搜索";
+            this.comm_search.UseVisualStyleBackColor = true;
+            this.comm_search.Click += new System.EventHandler(this.comm_search_Click);
             // 
-            // comboBox1
+            // comm_search_category
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(25, 68);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.Text = "选择商品类别...";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comm_search_category.FormattingEnabled = true;
+            this.comm_search_category.Location = new System.Drawing.Point(25, 68);
+            this.comm_search_category.Name = "comm_search_category";
+            this.comm_search_category.Size = new System.Drawing.Size(121, 21);
+            this.comm_search_category.TabIndex = 4;
+            this.comm_search_category.Text = "选择商品类别...";
+            this.comm_search_category.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Font = new System.Drawing.Font("SimSun", 10F);
+            this.groupBox1.Controls.Add(this.comm_search_category);
+            this.groupBox1.Controls.Add(this.comm_search);
+            this.groupBox1.Controls.Add(this.comm_search_text);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 10F);
             this.groupBox1.Location = new System.Drawing.Point(35, 59);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(334, 109);
@@ -108,7 +110,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.low_price);
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Font = new System.Drawing.Font("SimSun", 10F);
+            this.groupBox2.Font = new System.Drawing.Font("宋体", 10F);
             this.groupBox2.Location = new System.Drawing.Point(420, 59);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(363, 109);
@@ -202,8 +204,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Font = new System.Drawing.Font("SimSun", 10F);
+            this.groupBox3.Controls.Add(this.search_result);
+            this.groupBox3.Font = new System.Drawing.Font("宋体", 10F);
             this.groupBox3.Location = new System.Drawing.Point(35, 189);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(748, 395);
@@ -211,18 +213,26 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "搜索结果";
             // 
-            // dataGridView1
+            // search_result
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(736, 364);
-            this.dataGridView1.TabIndex = 0;
+            this.search_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.search_result.DefaultCellStyle = dataGridViewCellStyle1;
+            this.search_result.Location = new System.Drawing.Point(6, 22);
+            this.search_result.Name = "search_result";
+            this.search_result.RowTemplate.Height = 23;
+            this.search_result.Size = new System.Drawing.Size(736, 364);
+            this.search_result.TabIndex = 0;
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("SimSun", 10F);
+            this.button7.Font = new System.Drawing.Font("宋体", 10F);
             this.button7.Location = new System.Drawing.Point(590, 591);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(71, 24);
@@ -232,7 +242,7 @@
             // 
             // button8
             // 
-            this.button8.Font = new System.Drawing.Font("SimSun", 10F);
+            this.button8.Font = new System.Drawing.Font("宋体", 10F);
             this.button8.Location = new System.Drawing.Point(700, 591);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(71, 23);
@@ -242,7 +252,7 @@
             // 
             // sign_in
             // 
-            this.sign_in.Font = new System.Drawing.Font("SimSun", 10F);
+            this.sign_in.Font = new System.Drawing.Font("宋体", 10F);
             this.sign_in.Location = new System.Drawing.Point(700, 12);
             this.sign_in.Name = "sign_in";
             this.sign_in.Size = new System.Drawing.Size(76, 27);
@@ -254,7 +264,7 @@
             // myInfo
             // 
             this.myInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myInfo.Font = new System.Drawing.Font("SimSun", 10F);
+            this.myInfo.Font = new System.Drawing.Font("宋体", 10F);
             this.myInfo.Location = new System.Drawing.Point(590, 11);
             this.myInfo.Name = "myInfo";
             this.myInfo.Size = new System.Drawing.Size(84, 28);
@@ -265,7 +275,7 @@
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("SimSun", 10F);
+            this.button2.Font = new System.Drawing.Font("宋体", 10F);
             this.button2.Location = new System.Drawing.Point(35, 590);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(84, 24);
@@ -275,7 +285,7 @@
             // 
             // putAway
             // 
-            this.putAway.Font = new System.Drawing.Font("SimSun", 10F);
+            this.putAway.Font = new System.Drawing.Font("宋体", 10F);
             this.putAway.Location = new System.Drawing.Point(481, 591);
             this.putAway.Name = "putAway";
             this.putAway.Size = new System.Drawing.Size(71, 24);
@@ -286,7 +296,7 @@
             // 
             // button11
             // 
-            this.button11.Font = new System.Drawing.Font("SimSun", 10F);
+            this.button11.Font = new System.Drawing.Font("宋体", 10F);
             this.button11.Location = new System.Drawing.Point(162, 590);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(84, 24);
@@ -298,7 +308,7 @@
             // 
             this.button10.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.button10.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button10.Font = new System.Drawing.Font("SimSun", 10F);
+            this.button10.Font = new System.Drawing.Font("宋体", 10F);
             this.button10.Location = new System.Drawing.Point(41, 11);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(84, 28);
@@ -323,7 +333,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.myInfo);
-            this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "MainForm";
             this.Text = "SHOP";
             this.groupBox1.ResumeLayout(false);
@@ -331,15 +341,15 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.search_result)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox comm_search_text;
+        private System.Windows.Forms.Button comm_search;
+        private System.Windows.Forms.ComboBox comm_search_category;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button6;
@@ -352,7 +362,7 @@
         private System.Windows.Forms.TextBox low_price;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView search_result;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button sign_in;

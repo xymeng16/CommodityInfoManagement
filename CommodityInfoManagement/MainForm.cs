@@ -17,8 +17,8 @@ namespace CommodityInfoManagement
         {
             InitializeComponent();
             currentUser = user;
-            comboBox1.Items.Add("ALL");
-            comboBox1.Items.Add("GOODS A");
+            comm_search_category.Items.Add("ALL");
+            comm_search_category.Items.Add("GOODS A");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,6 +40,17 @@ namespace CommodityInfoManagement
         private void putAway_Click(object sender, EventArgs e)
         {
             (new Product_Card(Product_Card.PUT_AWAY)).Show();
+        }
+
+        private void comm_search_Click(object sender, EventArgs e)
+        {
+            using (MySqlAdapter adapter = new MySqlAdapter()) { 
+                string comm_name = comm_search_text.Text.Trim();
+                string sqlcommand = "select comm_name,caterogy_name,comm_unit_price,comm_stock_amount from comm_info,comm_category,comm_storage_rack " +
+                                    "where comm_name like '%" + comm_name + "%' and comm_info.comm_id = comm_storage_rack.comm_id " +
+                                    "and comm_info.comm_category_id = comm_category.category_id";
+                this.search_result.DataSource = adapter.GetDataView(sqlcommand);
+            }
         }
     }
 }
