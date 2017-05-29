@@ -24,6 +24,7 @@ namespace CommodityInfoManagement
             {
                 imgPath.Text = chooseFileDialog.FileName;
             }
+            commImg.Image = Image.FromFile(imgPath.Text);
         }
 
         public Product_Card(int mode)
