@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -8,7 +9,9 @@ namespace CommodityInfoManagement
 {
     public partial class MainForm : Form
     {
-        private User currentUser;
+        private static User currentUser;
+        private DataView dv;
+
         public MainForm(User user)
         {
             InitializeComponent();
@@ -159,7 +162,7 @@ namespace CommodityInfoManagement
         {
             using (MySqlAdapter adapter = new MySqlAdapter())
             {
-                string name = (string) search_result.CurrentRow.Cells["comm_name"].Value;
+                string name = (string) search_result.CurrentRow.Cells[0].Value;
                 adapter.AddParams(new MySql.Data.MySqlClient.MySqlParameter("name", name));
                 var result = adapter.GetDataRow("select comm_name, category_name, comm_unit_price," +
                     " comm_stock_amount, username from comm_info," +

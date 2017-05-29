@@ -128,10 +128,7 @@ namespace CommodityInfoManagement
             var controls = GetAllControls(this);
             foreach (var c in controls)
             {
-                if (c is TextBox)
-                    (c as TextBox).ReadOnly = true;
-                else
-                    c.Enabled = false;
+                c.Enabled = false;
             }
             cancel.Enabled = true;
             cancel.Focus();
