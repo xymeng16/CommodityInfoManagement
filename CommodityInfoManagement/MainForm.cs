@@ -12,7 +12,7 @@ namespace CommodityInfoManagement
 {
     public partial class MainForm : Form
     {
-        private User currentUser;
+        private static User currentUser;
         public MainForm(User user)
         {
             InitializeComponent();
@@ -25,7 +25,10 @@ namespace CommodityInfoManagement
         {
 
         }
-
+        public static string GetUsername()
+        {
+            return currentUser.Username;
+        }
         private void myInfo_Click(object sender, EventArgs e)
         {
             (new UserInfo(currentUser)).Show();

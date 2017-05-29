@@ -47,7 +47,7 @@ create table comm_user_role(
 -- Table: Commodity Category (comm_category)
 create table comm_category(
 	category_id smallint unsigned auto_increment primary key,
-    caterogy_name varchar(20) not null
+    category_name varchar(20) not null
 )engine=innodb;
 
 -- Table: Commodity Infomation (comm_info)
