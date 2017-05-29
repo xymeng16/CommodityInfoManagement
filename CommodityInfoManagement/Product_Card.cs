@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
 namespace CommodityInfoManagement
 {
     public partial class Product_Card : Form
@@ -27,10 +27,18 @@ namespace CommodityInfoManagement
             commImg.Image = Image.FromFile(imgPath.Text);
         }
 
+        private void submit_Click(object sender, EventArgs e)
+        {
+            using (MySqlAdapter adapter = new MySqlAdapter())
+            {
+                string infoCommand = "insert into comm_info values(null, " +
+                    "?name, ?category_id, ?owner_id, )"
+            }
+        }
+
         public Product_Card(int mode)
         {
             InitializeComponent();
-
         }
     }
 }

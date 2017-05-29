@@ -54,7 +54,7 @@
             this.commImg = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.submit = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -321,15 +321,16 @@
             this.textBox10.Size = new System.Drawing.Size(573, 87);
             this.textBox10.TabIndex = 23;
             // 
-            // button1
+            // submit
             // 
-            this.button1.Font = new System.Drawing.Font("SimSun", 12F);
-            this.button1.Location = new System.Drawing.Point(203, 631);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 37);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "提交";
-            this.button1.UseVisualStyleBackColor = true;
+            this.submit.Font = new System.Drawing.Font("SimSun", 12F);
+            this.submit.Location = new System.Drawing.Point(203, 631);
+            this.submit.Name = "submit";
+            this.submit.Size = new System.Drawing.Size(125, 37);
+            this.submit.TabIndex = 24;
+            this.submit.Text = "提交";
+            this.submit.UseVisualStyleBackColor = true;
+            this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
             // button2
             // 
@@ -382,7 +383,7 @@
             this.ClientSize = new System.Drawing.Size(668, 679);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.submit);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox3);
@@ -424,7 +425,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button submit;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
