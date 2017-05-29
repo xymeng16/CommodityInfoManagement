@@ -85,6 +85,8 @@ create table comm_not_stored(
     on delete cascade on update cascade
 );
 
+-- TODO: Commodity Purchasing Log
+
 -- Insert authority
 insert into comm_authority
 values(null, 'READ');

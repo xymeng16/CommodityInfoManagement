@@ -49,7 +49,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.sign_in = new System.Windows.Forms.Button();
             this.myInfo = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.detail = new System.Windows.Forms.Button();
             this.putAway = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -91,7 +91,7 @@
             this.groupBox1.Controls.Add(this.comm_search_category);
             this.groupBox1.Controls.Add(this.comm_search);
             this.groupBox1.Controls.Add(this.comm_search_text);
-            this.groupBox1.Font = new System.Drawing.Font("宋体", 10F);
+            this.groupBox1.Font = new System.Drawing.Font("SimSun", 10F);
             this.groupBox1.Location = new System.Drawing.Point(35, 59);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(334, 109);
@@ -110,7 +110,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.low_price);
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Font = new System.Drawing.Font("宋体", 10F);
+            this.groupBox2.Font = new System.Drawing.Font("SimSun", 10F);
             this.groupBox2.Location = new System.Drawing.Point(420, 59);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(363, 109);
@@ -205,7 +205,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.search_result);
-            this.groupBox3.Font = new System.Drawing.Font("宋体", 10F);
+            this.groupBox3.Font = new System.Drawing.Font("SimSun", 10F);
             this.groupBox3.Location = new System.Drawing.Point(35, 189);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(748, 395);
@@ -215,10 +215,11 @@
             // 
             // search_result
             // 
+            this.search_result.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.search_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("SimSun", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -232,7 +233,7 @@
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("宋体", 10F);
+            this.button7.Font = new System.Drawing.Font("SimSun", 10F);
             this.button7.Location = new System.Drawing.Point(590, 591);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(71, 24);
@@ -242,7 +243,7 @@
             // 
             // button8
             // 
-            this.button8.Font = new System.Drawing.Font("宋体", 10F);
+            this.button8.Font = new System.Drawing.Font("SimSun", 10F);
             this.button8.Location = new System.Drawing.Point(700, 591);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(71, 23);
@@ -252,7 +253,7 @@
             // 
             // sign_in
             // 
-            this.sign_in.Font = new System.Drawing.Font("宋体", 10F);
+            this.sign_in.Font = new System.Drawing.Font("SimSun", 10F);
             this.sign_in.Location = new System.Drawing.Point(700, 12);
             this.sign_in.Name = "sign_in";
             this.sign_in.Size = new System.Drawing.Size(76, 27);
@@ -264,7 +265,7 @@
             // myInfo
             // 
             this.myInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myInfo.Font = new System.Drawing.Font("宋体", 10F);
+            this.myInfo.Font = new System.Drawing.Font("SimSun", 10F);
             this.myInfo.Location = new System.Drawing.Point(590, 11);
             this.myInfo.Name = "myInfo";
             this.myInfo.Size = new System.Drawing.Size(84, 28);
@@ -273,19 +274,20 @@
             this.myInfo.UseVisualStyleBackColor = true;
             this.myInfo.Click += new System.EventHandler(this.myInfo_Click);
             // 
-            // button2
+            // detail
             // 
-            this.button2.Font = new System.Drawing.Font("宋体", 10F);
-            this.button2.Location = new System.Drawing.Point(35, 590);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 24);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "查看详情";
-            this.button2.UseVisualStyleBackColor = true;
+            this.detail.Font = new System.Drawing.Font("SimSun", 10F);
+            this.detail.Location = new System.Drawing.Point(35, 590);
+            this.detail.Name = "detail";
+            this.detail.Size = new System.Drawing.Size(84, 24);
+            this.detail.TabIndex = 12;
+            this.detail.Text = "查看详情";
+            this.detail.UseVisualStyleBackColor = true;
+            this.detail.Click += new System.EventHandler(this.detail_Click);
             // 
             // putAway
             // 
-            this.putAway.Font = new System.Drawing.Font("宋体", 10F);
+            this.putAway.Font = new System.Drawing.Font("SimSun", 10F);
             this.putAway.Location = new System.Drawing.Point(481, 591);
             this.putAway.Name = "putAway";
             this.putAway.Size = new System.Drawing.Size(71, 24);
@@ -296,7 +298,7 @@
             // 
             // button11
             // 
-            this.button11.Font = new System.Drawing.Font("宋体", 10F);
+            this.button11.Font = new System.Drawing.Font("SimSun", 10F);
             this.button11.Location = new System.Drawing.Point(162, 590);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(84, 24);
@@ -308,7 +310,7 @@
             // 
             this.button10.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.button10.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button10.Font = new System.Drawing.Font("宋体", 10F);
+            this.button10.Font = new System.Drawing.Font("SimSun", 10F);
             this.button10.Location = new System.Drawing.Point(41, 11);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(84, 28);
@@ -324,7 +326,7 @@
             this.ClientSize = new System.Drawing.Size(824, 627);
             this.Controls.Add(this.putAway);
             this.Controls.Add(this.button11);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.detail);
             this.Controls.Add(this.sign_in);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -333,7 +335,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.myInfo);
-            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "MainForm";
             this.Text = "SHOP";
             this.groupBox1.ResumeLayout(false);
@@ -367,7 +369,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button sign_in;
         public System.Windows.Forms.Button myInfo;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button detail;
         private System.Windows.Forms.Button putAway;
         private System.Windows.Forms.Button button11;
         public System.Windows.Forms.Button button10;

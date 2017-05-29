@@ -59,7 +59,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.description = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -366,15 +366,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.submit_Click);
             // 
-            // button2
+            // cancel
             // 
-            this.button2.Font = new System.Drawing.Font("SimSun", 12F);
-            this.button2.Location = new System.Drawing.Point(367, 631);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 37);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "取消";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cancel.Font = new System.Drawing.Font("SimSun", 12F);
+            this.cancel.Location = new System.Drawing.Point(367, 631);
+            this.cancel.Name = "cancel";
+            this.cancel.Size = new System.Drawing.Size(125, 37);
+            this.cancel.TabIndex = 25;
+            this.cancel.Text = "取消";
+            this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
             // Product_Card
             // 
@@ -382,7 +383,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 679);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.cancel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.description);
             this.Controls.Add(this.label11);
@@ -426,7 +427,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox description;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox imgPath;

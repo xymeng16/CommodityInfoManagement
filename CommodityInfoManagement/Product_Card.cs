@@ -33,35 +33,42 @@ namespace CommodityInfoManagement
             "?shape, " +
             "?description);";
         private string stockCommand = "insert into comm_storage_rack values(" +
-            "(select comm_id from comm_info where comm_name='?name')" +
+            "(select comm_id from comm_info where comm_name=?name)" +
             ", ?amount, " +
             "?price);";
         private void submit_Click(object sender, EventArgs e)
         {
-            using (MySqlAdapter adapter = new MySqlAdapter())
+            try
             {
-                adapter.AddParams(new MySqlParameter("name", name.Text));
-                adapter.AddParams(new MySqlParameter("category_name", category.Text));
-                adapter.AddParams(new MySqlParameter("username", MainForm.GetUsername()));
-                Scp scp = new Scp("45.76.37.186", "commodity", "mxylls123!@#");
-                scp.Connect();
-                scp.To(imgPath.Text, "/home/commodity/CommodityInfo/Images/" + name.Text + ".jpg");
-                scp.Close();
-                adapter.AddParams(new MySqlParameter("image", name.Text+".jpg"));
-                adapter.AddParams(new MySqlParameter("length", length.Text == "" ? null : length.Text));
-                adapter.AddParams(new MySqlParameter("width", width.Text == "" ? null : width.Text));
-                adapter.AddParams(new MySqlParameter("height", height.Text == "" ? null : height.Text));
-                adapter.AddParams(new MySqlParameter("weight", weight.Text == "" ? null : weight.Text));
-                adapter.AddParams(new MySqlParameter("color", color.Text == "" ? null : color.Text));
-                adapter.AddParams(new MySqlParameter("shape", shape.Text == "" ? null : shape.Text));
-                adapter.AddParams(new MySqlParameter("description", description.Text == "" ? null : description.Text));
-                adapter.AddParams(new MySqlParameter("amount", amount.Text));
-                adapter.AddParams(new MySqlParameter("price", price.Text));
-                adapter.ExecuteNonQuery(infoCommand);
-                adapter.AddParams(new MySqlParameter("name", name.Text));
-                adapter.ExecuteNonQuery(stockCommand);
+                using (MySqlAdapter adapter = new MySqlAdapter())
+                {
+                    adapter.AddParams(new MySqlParameter("name", name.Text));
+                    adapter.AddParams(new MySqlParameter("category_name", category.Text));
+                    adapter.AddParams(new MySqlParameter("username", MainForm.GetUsername()));
+                    Scp scp = new Scp("45.76.37.186", "commodity", "mxylls123!@#");
+                    scp.Connect();
+                    scp.To(imgPath.Text, "/home/commodity/CommodityInfo/Images/" + name.Text + ".jpg");
+                    scp.Close();
+                    adapter.AddParams(new MySqlParameter("image", name.Text + ".jpg"));
+                    adapter.AddParams(new MySqlParameter("length", length.Text == "" ? null : length.Text));
+                    adapter.AddParams(new MySqlParameter("width", width.Text == "" ? null : width.Text));
+                    adapter.AddParams(new MySqlParameter("height", height.Text == "" ? null : height.Text));
+                    adapter.AddParams(new MySqlParameter("weight", weight.Text == "" ? null : weight.Text));
+                    adapter.AddParams(new MySqlParameter("color", color.Text == "" ? null : color.Text));
+                    adapter.AddParams(new MySqlParameter("shape", shape.Text == "" ? null : shape.Text));
+                    adapter.AddParams(new MySqlParameter("description", description.Text == "" ? null : description.Text));
+                    adapter.AddParams(new MySqlParameter("amount", amount.Text));
+                    adapter.AddParams(new MySqlParameter("price", price.Text));
+                    adapter.ExecuteNonQuery(infoCommand);
+                    adapter.ExecuteNonQuery(stockCommand);
+                }
+                MessageBox.Show("上架成功");
+                this.Close();
             }
-            this.Close();
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.StackTrace, "上架失败！");
+            }
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -71,17 +78,38 @@ namespace CommodityInfoManagement
             chooseFileDialog.Filter = "JPEG图片(*.jpg,*.jpeg)|*.jpg;*.jpeg";
             if(chooseFileDialog.ShowDialog() == DialogResult.OK)
             {
-                imgPath.Text = chooseFileDialog.FileName;
+                if (new FileInfo(chooseFileDialog.FileName).Length < 2097152)
+                {
+                    imgPath.Text = chooseFileDialog.FileName;
+                    commImg.Image = Image.FromFile(imgPath.Text);
+                }
+                else
+                {
+                    MessageBox.Show("图片大小不可超过2M！");
+                }
             }
-            commImg.Image = Image.FromFile(imgPath.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
         }
+        public IEnumerable<Control> GetAllControls(Control control, Type type)
+        {
+            var controls = control.Controls.Cast<Control>();
+            return controls.SelectMany(ctrl => GetAllControls(ctrl, type))
+                                      .Concat(controls)
+                                      .Where(c => c.GetType() == type);
+        }
 
-        public Product_Card(int mode)
+        public IEnumerable<Control> GetAllControls(Control control)
+        {
+            var controls = control.Controls.Cast<Control>();
+            return controls.SelectMany(ctrl => GetAllControls(ctrl))
+                                      .Concat(controls);
+        }
+
+        public Product_Card()
         {
             InitializeComponent();
             using (MySqlAdapter adapter = new MySqlAdapter())
@@ -92,6 +120,49 @@ namespace CommodityInfoManagement
                     category.Items.Add(s["category_name"]);
                 }
             }
+        }
+
+        public Product_Card(Commodity commodity)
+        {
+            InitializeComponent();
+            var controls = GetAllControls(this);
+            foreach (var c in controls)
+            {
+                if (c is TextBox)
+                    (c as TextBox).ReadOnly = true;
+                else
+                    c.Enabled = false;
+            }
+            cancel.Enabled = true;
+            cancel.Focus();
+            commodity.BindToProductCard(this);
+        }
+
+        public void SetCommName(string s)
+        {
+            name.Text = s;
+        }
+        public void SetCommCategory(string s)
+        {
+            category.Text = s;
+        }
+        public void SetCommPrice(string s)
+        {
+            price.Text = s;
+        }
+        public void SetCommAmount(string s)
+        {
+            amount.Text = s;
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void SetCommImage(Image img)
+        {
+            commImg.Image = img;
         }
     }
 }
