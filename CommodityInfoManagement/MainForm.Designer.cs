@@ -47,9 +47,9 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.sign_in = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.myInfo = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.putAway = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -251,17 +251,17 @@
             this.sign_in.UseVisualStyleBackColor = true;
             this.sign_in.Click += new System.EventHandler(this.sign_in_Click);
             // 
-            // button1
+            // myInfo
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("SimSun", 10F);
-            this.button1.Location = new System.Drawing.Point(590, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 28);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "个人信息";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.myInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myInfo.Font = new System.Drawing.Font("SimSun", 10F);
+            this.myInfo.Location = new System.Drawing.Point(590, 11);
+            this.myInfo.Name = "myInfo";
+            this.myInfo.Size = new System.Drawing.Size(84, 28);
+            this.myInfo.TabIndex = 0;
+            this.myInfo.Text = "个人信息";
+            this.myInfo.UseVisualStyleBackColor = true;
+            this.myInfo.Click += new System.EventHandler(this.myInfo_Click);
             // 
             // button2
             // 
@@ -273,15 +273,16 @@
             this.button2.Text = "查看详情";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // putAway
             // 
-            this.button9.Font = new System.Drawing.Font("SimSun", 10F);
-            this.button9.Location = new System.Drawing.Point(481, 591);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(71, 24);
-            this.button9.TabIndex = 13;
-            this.button9.Text = "上架";
-            this.button9.UseVisualStyleBackColor = true;
+            this.putAway.Font = new System.Drawing.Font("SimSun", 10F);
+            this.putAway.Location = new System.Drawing.Point(481, 591);
+            this.putAway.Name = "putAway";
+            this.putAway.Size = new System.Drawing.Size(71, 24);
+            this.putAway.TabIndex = 13;
+            this.putAway.Text = "上架";
+            this.putAway.UseVisualStyleBackColor = true;
+            this.putAway.Click += new System.EventHandler(this.putAway_Click);
             // 
             // button11
             // 
@@ -311,7 +312,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(824, 627);
-            this.Controls.Add(this.button9);
+            this.Controls.Add(this.putAway);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.sign_in);
@@ -321,7 +322,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button10);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.myInfo);
             this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "MainForm";
             this.Text = "SHOP";
@@ -355,9 +356,9 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button sign_in;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button myInfo;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button putAway;
         private System.Windows.Forms.Button button11;
         public System.Windows.Forms.Button button10;
     }

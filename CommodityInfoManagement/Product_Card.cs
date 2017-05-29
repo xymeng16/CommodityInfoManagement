@@ -12,11 +12,24 @@ namespace CommodityInfoManagement
 {
     public partial class Product_Card : Form
     {
-        public Product_Card()
+        public const int PUT_AWAY = 0, SHOW_INFO = 1;
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog chooseFileDialog = new OpenFileDialog();
+            chooseFileDialog.Multiselect = false;
+            chooseFileDialog.Title = "请选择图片";
+            chooseFileDialog.Filter = "JPEG图片(*.jpg,*.jpeg)|*.jpg;*.jpeg";
+            if(chooseFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                imgPath.Text = chooseFileDialog.FileName;
+            }
+        }
+
+        public Product_Card(int mode)
         {
             InitializeComponent();
-            comboBox2.Items.Add("A");
-            comboBox2.Items.Add("B");
+
         }
     }
 }

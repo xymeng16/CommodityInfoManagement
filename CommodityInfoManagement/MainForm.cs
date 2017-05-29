@@ -26,7 +26,7 @@ namespace CommodityInfoManagement
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void myInfo_Click(object sender, EventArgs e)
         {
             (new UserInfo(currentUser)).Show();
         }
@@ -35,6 +35,11 @@ namespace CommodityInfoManagement
         {
             Login.self.Show();
             this.Close();
+        }
+
+        private void putAway_Click(object sender, EventArgs e)
+        {
+            (new Product_Card(Product_Card.PUT_AWAY)).Show();
         }
     }
 }
