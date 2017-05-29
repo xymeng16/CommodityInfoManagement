@@ -31,8 +31,8 @@ namespace CommodityInfoManagement
         {
             using (MySqlAdapter adapter = new MySqlAdapter())
             {
-                string infoCommand = "insert into comm_info values(null, " +
-                    "?name, ?category_id, ?owner_id, )"
+               // string infoCommand = "insert into comm_info values(null, " +
+                //    "?name, ?category_id, ?owner_id, )"
             }
         }
 
