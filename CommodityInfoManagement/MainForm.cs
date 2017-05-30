@@ -224,5 +224,10 @@ namespace CommodityInfoManagement
                 comm_search.PerformClick();
             }
         }
+
+        private void userManagement_Click_1(object sender, EventArgs e)
+        {
+            (new UserManagement()).ShowDialog();
+        }
     }   
 }
