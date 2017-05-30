@@ -44,7 +44,7 @@ namespace CommodityInfoManagement
                 {
                     adapter.AddParams(new MySqlParameter("name", name.Text));
                     adapter.AddParams(new MySqlParameter("category_name", category.Text));
-                    adapter.AddParams(new MySqlParameter("username", MainForm.GetUsername()));
+                    adapter.AddParams(new MySqlParameter("username", MainForm.GetInstance().GetUsername()));
                     Scp scp = new Scp("45.76.37.186", "commodity", "mxylls123!@#");
                     scp.Connect();
                     scp.To(imgPath.Text, "/home/commodity/CommodityInfo/Images/" + name.Text + ".jpg");

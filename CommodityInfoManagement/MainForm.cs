@@ -9,13 +9,14 @@ namespace CommodityInfoManagement
 {
     public partial class MainForm : Form
     {
-        private static User currentUser;
+        private User currentUser;
         private DataView dv;
-
-        public MainForm(User user)
+        private static MainForm instance;
+        public MainForm()
         {
             InitializeComponent();
-            currentUser = user;
+            instance = this;
+            new Login().ShowDialog();
             using (MySqlAdapter adapter = new MySqlAdapter())
             {
                 try
@@ -33,16 +34,23 @@ namespace CommodityInfoManagement
 
             }
         }
-
+        public static MainForm GetInstance()
+        {
+            return instance;
+        }
+        public void SetCurrentUser(User user)
+        {
+            currentUser = user;
+        }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-        public static string GetUsername()
+        public string GetUsername()
         {
             return currentUser.Username;
         }
-        public static User GetCurrentUser()
+        public User GetCurrentUser()
         {
             return currentUser;
         }
@@ -54,7 +62,7 @@ namespace CommodityInfoManagement
         private void sign_in_Click(object sender, EventArgs e)
         {
             Login.self.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void putAway_Click(object sender, EventArgs e)
