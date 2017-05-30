@@ -206,5 +206,23 @@ namespace CommodityInfoManagement
         {
 
         }
+
+        private void off_shelve_Click(object sender, EventArgs e)
+        {
+            using (MySqlAdapter adapter = new MySqlAdapter()) {
+                int comm_id, comm_stock_amount, index = search_result.CurrentRow.Index;
+                double comm_unit_price;
+                comm_id = Convert.ToInt32(search_result.Rows[index].Cells[4].Value);
+                string sqlcommand1 = "select * from comm_storage_rack where comm_id = " + comm_id;
+                DataRow dr = adapter.GetDataRow(sqlcommand1);
+                comm_stock_amount = Convert.ToInt32(dr[1]);
+                comm_unit_price = Convert.ToDouble(dr[2]);
+                string sqlcommand2 = "delect from comm_storage_rack where comm_id = " + comm_id;
+                adapter.ExecuteNonQuery(sqlcommand2);
+                string sqlcommand3 = string.Format("insert into Commodity Not Stored values({0},{1},{2})", comm_id, comm_stock_amount, comm_unit_price);
+                adapter.ExecuteNonQuery(sqlcommand3);
+                comm_search.PerformClick();
+            }
+        }
     }   
 }
