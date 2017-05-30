@@ -3,7 +3,7 @@
 	Author: Xiangyi Meng
 	Date: 5/28/2017
 */
-
+start transaction;
 USE commodity;
 
 -- Table: Authority (comm_authority)
@@ -23,8 +23,8 @@ create table comm_role_authority(
     role_id smallint unsigned,
     auth_id smallint unsigned,
     primary key(role_id,auth_id), 
-    foreign key(role_id) references comm_role(role_id),
-    foreign key(auth_id) references comm_authority(auth_id)
+    foreign key(role_id) references comm_role(role_id)  on delete cascade on update cascade,
+    foreign key(auth_id) references comm_authority(auth_id)  on delete cascade on update cascade
 )engine=innodb; 
 
 -- Table: User (comm_user)
@@ -52,7 +52,7 @@ create table comm_category(
 
 -- Table: Commodity Infomation (comm_info)
 create table comm_info(
-	comm_id smallint auto_increment primary key, 
+	comm_id smallint unsigned auto_increment primary key, 
 	comm_name varchar(255) not null, 
 	comm_category_id smallint unsigned not null, 
     comm_owner_id smallint unsigned not null,
@@ -70,7 +70,7 @@ create table comm_info(
 
 -- Table: Commodity Storage Rack (comm_storage_rack)
 create table comm_storage_rack(
-	comm_id smallint not null,
+	comm_id smallint unsigned not null,
     comm_stock_amount int not null,
     comm_unit_price float not null,
     foreign key(comm_id) references comm_info(comm_id)
@@ -79,13 +79,21 @@ create table comm_storage_rack(
 
 -- Table: Commodity Not Stored (comm_not_stored)
 create table comm_not_stored(
-	comm_id smallint not null,
+	comm_id smallint unsigned primary key,
     comm_remaining_amount int not null,
     foreign key(comm_id) references comm_info(comm_id)
     on delete cascade on update cascade
-);
+)engine=innodb;
 
 -- TODO: Commodity Purchasing Log
+create table comm_purchasing_log(
+	comm_id smallint unsigned,
+    comm_buyer_id smallint unsigned,
+    comm_amount int not null,
+    primary key(comm_id, comm_buyer_id),
+    foreign key(comm_id) references comm_info(comm_id),
+    foreign key(comm_buyer_id) references comm_user(user_id) on delete cascade on update cascade
+)engine=innodb;
 
 -- Insert authority
 insert into comm_authority
@@ -143,3 +151,4 @@ insert into comm_user_role
 values(1, 4);
 -- Insert superuser
 -- 6glewtIo
+commit work;
