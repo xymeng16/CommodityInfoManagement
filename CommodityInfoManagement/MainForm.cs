@@ -32,7 +32,7 @@ namespace CommodityInfoManagement
                     MessageBox.Show(e.StackTrace, "数据获取失败！");
                 }
             }
-            if(currentUser.Role!="超级管理员"||currentUser.Role!="管理员")
+            if(currentUser.Role!="超级管理员" && currentUser.Role!="管理员")
             {
                 userManagement.Enabled = false;
             }
