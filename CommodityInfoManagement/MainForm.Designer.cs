@@ -1,4 +1,6 @@
-﻿namespace CommodityInfoManagement
+﻿using System.Windows.Forms;
+
+namespace CommodityInfoManagement
 {
     partial class MainForm
     {
@@ -28,8 +30,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comm_search_text = new System.Windows.Forms.TextBox();
             this.comm_search = new System.Windows.Forms.Button();
             this.comm_search_category = new System.Windows.Forms.ComboBox();
@@ -53,7 +55,7 @@
             this.detail = new System.Windows.Forms.Button();
             this.putAway = new System.Windows.Forms.Button();
             this.buy_comm = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.userManagement = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -79,7 +81,7 @@
             // 
             // comm_search_category
             // 
-            this.comm_search_category.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comm_search_category.Font = new System.Drawing.Font("宋体", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comm_search_category.FormattingEnabled = true;
             this.comm_search_category.Location = new System.Drawing.Point(25, 68);
             this.comm_search_category.Name = "comm_search_category";
@@ -226,23 +228,23 @@
             // search_result
             // 
             this.search_result.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 10F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.search_result.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.search_result.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.search_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 10F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.search_result.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 10F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.search_result.DefaultCellStyle = dataGridViewCellStyle4;
             this.search_result.Location = new System.Drawing.Point(6, 22);
             this.search_result.Name = "search_result";
             this.search_result.RowTemplate.Height = 23;
@@ -327,15 +329,16 @@
             // 
             // userManagement
             // 
-            this.button10.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.button10.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button10.Font = new System.Drawing.Font("宋体", 10F);
-            this.button10.Location = new System.Drawing.Point(41, 11);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(84, 28);
-            this.button10.TabIndex = 2;
-            this.button10.Text = "用户管理";
-            this.button10.UseVisualStyleBackColor = true;
+            this.userManagement.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.userManagement.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.userManagement.Font = new System.Drawing.Font("宋体", 10F);
+            this.userManagement.Location = new System.Drawing.Point(41, 11);
+            this.userManagement.Name = "userManagement";
+            this.userManagement.Size = new System.Drawing.Size(84, 28);
+            this.userManagement.TabIndex = 2;
+            this.userManagement.Text = "用户管理";
+            this.userManagement.UseVisualStyleBackColor = true;
+            this.userManagement.Click += userManagement_Click;
             // 
             // MainForm
             // 
@@ -393,7 +396,10 @@
         private System.Windows.Forms.Button detail;
         private System.Windows.Forms.Button putAway;
         private System.Windows.Forms.Button buy_comm;
-        public System.Windows.Forms.Button button10;
+        public System.Windows.Forms.Button userManagement;
+
+
+
     }
 }
 
