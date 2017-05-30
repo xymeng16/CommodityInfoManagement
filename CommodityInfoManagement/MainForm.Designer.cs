@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comm_search_text = new System.Windows.Forms.TextBox();
             this.comm_search = new System.Windows.Forms.Button();
             this.comm_search_category = new System.Windows.Forms.ComboBox();
@@ -52,7 +52,7 @@
             this.myInfo = new System.Windows.Forms.Button();
             this.detail = new System.Windows.Forms.Button();
             this.putAway = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.buy_comm = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -65,14 +65,14 @@
             this.comm_search_text.Location = new System.Drawing.Point(25, 22);
             this.comm_search_text.Name = "comm_search_text";
             this.comm_search_text.Size = new System.Drawing.Size(173, 23);
-            this.comm_search_text.TabIndex = 2;
+            this.comm_search_text.TabIndex = 0;
             // 
             // comm_search
             // 
             this.comm_search.Location = new System.Drawing.Point(227, 22);
             this.comm_search.Name = "comm_search";
             this.comm_search.Size = new System.Drawing.Size(75, 23);
-            this.comm_search.TabIndex = 3;
+            this.comm_search.TabIndex = 2;
             this.comm_search.Text = "搜索";
             this.comm_search.UseVisualStyleBackColor = true;
             this.comm_search.Click += new System.EventHandler(this.comm_search_Click);
@@ -84,7 +84,7 @@
             this.comm_search_category.Location = new System.Drawing.Point(25, 68);
             this.comm_search_category.Name = "comm_search_category";
             this.comm_search_category.Size = new System.Drawing.Size(121, 21);
-            this.comm_search_category.TabIndex = 4;
+            this.comm_search_category.TabIndex = 1;
             this.comm_search_category.Text = "选择商品类别...";
             this.comm_search_category.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -93,11 +93,11 @@
             this.groupBox1.Controls.Add(this.comm_search_category);
             this.groupBox1.Controls.Add(this.comm_search);
             this.groupBox1.Controls.Add(this.comm_search_text);
-            this.groupBox1.Font = new System.Drawing.Font("SimSun", 10F);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 10F);
             this.groupBox1.Location = new System.Drawing.Point(35, 59);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(334, 109);
-            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "搜索";
             // 
@@ -112,11 +112,11 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.low_price);
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Font = new System.Drawing.Font("SimSun", 10F);
+            this.groupBox2.Font = new System.Drawing.Font("宋体", 10F);
             this.groupBox2.Location = new System.Drawing.Point(420, 59);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(363, 109);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "筛选";
             // 
@@ -137,7 +137,7 @@
             this.high_amount.Name = "high_amount";
             this.high_amount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.high_amount.Size = new System.Drawing.Size(57, 23);
-            this.high_amount.TabIndex = 9;
+            this.high_amount.TabIndex = 3;
             this.high_amount.Text = "0";
             this.high_amount.MouseClick += new System.Windows.Forms.MouseEventHandler(this.high_amount_MouseClick);
             this.high_amount.Leave += new System.EventHandler(this.high_amount_Leave);
@@ -157,7 +157,7 @@
             this.low_amount.Name = "low_amount";
             this.low_amount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.low_amount.Size = new System.Drawing.Size(57, 23);
-            this.low_amount.TabIndex = 8;
+            this.low_amount.TabIndex = 2;
             this.low_amount.Text = "0";
             this.low_amount.MouseClick += new System.Windows.Forms.MouseEventHandler(this.low_amount_MouseClick);
             this.low_amount.Leave += new System.EventHandler(this.low_amount_Leave);
@@ -178,7 +178,7 @@
             this.high_price.Name = "high_price";
             this.high_price.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.high_price.Size = new System.Drawing.Size(57, 23);
-            this.high_price.TabIndex = 7;
+            this.high_price.TabIndex = 1;
             this.high_price.Text = "0";
             this.high_price.MouseClick += new System.Windows.Forms.MouseEventHandler(this.high_price_MouseClick);
             this.high_price.Leave += new System.EventHandler(this.high_price_Leave);
@@ -197,7 +197,7 @@
             this.low_price.Location = new System.Drawing.Point(126, 24);
             this.low_price.Name = "low_price";
             this.low_price.Size = new System.Drawing.Size(57, 23);
-            this.low_price.TabIndex = 6;
+            this.low_price.TabIndex = 0;
             this.low_price.Text = "0";
             this.low_price.MouseClick += new System.Windows.Forms.MouseEventHandler(this.low_price_MouseClick);
             this.low_price.Leave += new System.EventHandler(this.low_price_Leave);
@@ -215,7 +215,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.search_result);
-            this.groupBox3.Font = new System.Drawing.Font("SimSun", 10F);
+            this.groupBox3.Font = new System.Drawing.Font("宋体", 10F);
             this.groupBox3.Location = new System.Drawing.Point(35, 189);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(748, 395);
@@ -226,23 +226,23 @@
             // search_result
             // 
             this.search_result.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("宋体", 10F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.search_result.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 10F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.search_result.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.search_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("宋体", 10F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.search_result.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 10F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.search_result.DefaultCellStyle = dataGridViewCellStyle12;
             this.search_result.Location = new System.Drawing.Point(6, 22);
             this.search_result.Name = "search_result";
             this.search_result.RowTemplate.Height = 23;
@@ -251,7 +251,7 @@
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("SimSun", 10F);
+            this.button7.Font = new System.Drawing.Font("宋体", 10F);
             this.button7.Location = new System.Drawing.Point(590, 591);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(71, 24);
@@ -261,7 +261,7 @@
             // 
             // button8
             // 
-            this.button8.Font = new System.Drawing.Font("SimSun", 10F);
+            this.button8.Font = new System.Drawing.Font("宋体", 10F);
             this.button8.Location = new System.Drawing.Point(700, 591);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(71, 23);
@@ -271,7 +271,7 @@
             // 
             // sign_in
             // 
-            this.sign_in.Font = new System.Drawing.Font("SimSun", 10F);
+            this.sign_in.Font = new System.Drawing.Font("宋体", 10F);
             this.sign_in.Location = new System.Drawing.Point(700, 12);
             this.sign_in.Name = "sign_in";
             this.sign_in.Size = new System.Drawing.Size(76, 27);
@@ -283,18 +283,18 @@
             // myInfo
             // 
             this.myInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myInfo.Font = new System.Drawing.Font("SimSun", 10F);
+            this.myInfo.Font = new System.Drawing.Font("宋体", 10F);
             this.myInfo.Location = new System.Drawing.Point(590, 11);
             this.myInfo.Name = "myInfo";
             this.myInfo.Size = new System.Drawing.Size(84, 28);
-            this.myInfo.TabIndex = 0;
+            this.myInfo.TabIndex = 3;
             this.myInfo.Text = "个人信息";
             this.myInfo.UseVisualStyleBackColor = true;
             this.myInfo.Click += new System.EventHandler(this.myInfo_Click);
             // 
             // detail
             // 
-            this.detail.Font = new System.Drawing.Font("SimSun", 10F);
+            this.detail.Font = new System.Drawing.Font("宋体", 10F);
             this.detail.Location = new System.Drawing.Point(35, 590);
             this.detail.Name = "detail";
             this.detail.Size = new System.Drawing.Size(84, 24);
@@ -305,7 +305,7 @@
             // 
             // putAway
             // 
-            this.putAway.Font = new System.Drawing.Font("SimSun", 10F);
+            this.putAway.Font = new System.Drawing.Font("宋体", 10F);
             this.putAway.Location = new System.Drawing.Point(481, 591);
             this.putAway.Name = "putAway";
             this.putAway.Size = new System.Drawing.Size(71, 24);
@@ -314,25 +314,26 @@
             this.putAway.UseVisualStyleBackColor = true;
             this.putAway.Click += new System.EventHandler(this.putAway_Click);
             // 
-            // button11
+            // buy_comm
             // 
-            this.button11.Font = new System.Drawing.Font("SimSun", 10F);
-            this.button11.Location = new System.Drawing.Point(162, 590);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(84, 24);
-            this.button11.TabIndex = 12;
-            this.button11.Text = "购买";
-            this.button11.UseVisualStyleBackColor = true;
+            this.buy_comm.Font = new System.Drawing.Font("宋体", 10F);
+            this.buy_comm.Location = new System.Drawing.Point(162, 590);
+            this.buy_comm.Name = "buy_comm";
+            this.buy_comm.Size = new System.Drawing.Size(84, 24);
+            this.buy_comm.TabIndex = 12;
+            this.buy_comm.Text = "购买";
+            this.buy_comm.UseVisualStyleBackColor = true;
+            this.buy_comm.Click += new System.EventHandler(this.buy_comm_Click);
             // 
             // button10
             // 
             this.button10.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.button10.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button10.Font = new System.Drawing.Font("SimSun", 10F);
+            this.button10.Font = new System.Drawing.Font("宋体", 10F);
             this.button10.Location = new System.Drawing.Point(41, 11);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(84, 28);
-            this.button10.TabIndex = 0;
+            this.button10.TabIndex = 2;
             this.button10.Text = "用户管理";
             this.button10.UseVisualStyleBackColor = true;
             // 
@@ -343,7 +344,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(824, 627);
             this.Controls.Add(this.putAway);
-            this.Controls.Add(this.button11);
+            this.Controls.Add(this.buy_comm);
             this.Controls.Add(this.detail);
             this.Controls.Add(this.sign_in);
             this.Controls.Add(this.button8);
@@ -353,9 +354,11 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.myInfo);
-            this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "MainForm";
-            this.Text = "SHOP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -389,7 +392,7 @@
         public System.Windows.Forms.Button myInfo;
         private System.Windows.Forms.Button detail;
         private System.Windows.Forms.Button putAway;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button buy_comm;
         public System.Windows.Forms.Button button10;
     }
 }

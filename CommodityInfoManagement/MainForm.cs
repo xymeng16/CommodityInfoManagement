@@ -20,6 +20,7 @@ namespace CommodityInfoManagement
             comm_search_category.Items.Add("b");
             comm_search_category.Items.Add("c");
             comm_search_category.Items.Add("d");
+            comm_search_category.Items.Add("选择商品类别...");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,7 +54,7 @@ namespace CommodityInfoManagement
                 string comm_name = comm_search_text.Text.Trim();
                 string comm_category = comm_search_category.Text.Trim();
                 if (string.Compare(comm_category, "选择商品类别...") == 0) { comm_category = ""; }
-                string sqlcommand = "select comm_name as name,category_name,comm_unit_price,comm_stock_amount from comm_info,comm_category,comm_storage_rack " +
+                string sqlcommand = "select comm_name as name,category_name,comm_unit_price,comm_stock_amount,comm_info.comm_id from comm_info,comm_category,comm_storage_rack " +
                                     "where comm_name like '%" + comm_name + "%' and comm_name like '%" + comm_category + "%' and " + 
                                     "comm_info.comm_id = comm_storage_rack.comm_id and comm_info.comm_category_id = comm_category.category_id ";
                 dv = adapter.GetDataView(sqlcommand);
@@ -63,6 +64,7 @@ namespace CommodityInfoManagement
                 this.search_result.Columns[1].HeaderCell.Value = "分类";
                 this.search_result.Columns[2].HeaderCell.Value = "单价";
                 this.search_result.Columns[3].HeaderCell.Value = "库存";
+                this.search_result.Columns[4].Visible = false;
             }
         }
 
@@ -81,11 +83,6 @@ namespace CommodityInfoManagement
                 using (MySqlAdapter adapter = new MySqlAdapter())
                 {
                     dv.RowFilter = "comm_stock_amount >= " + la + " and comm_stock_amount <= " + ha;
-                    this.search_result.DataSource = dv;
-                    this.search_result.Columns[0].HeaderCell.Value = "名称";
-                    this.search_result.Columns[1].HeaderCell.Value = "分类";
-                    this.search_result.Columns[2].HeaderCell.Value = "单价";
-                    this.search_result.Columns[3].HeaderCell.Value = "库存";
                 }
             }
             if (ha == 0 && hp != 0)
@@ -93,11 +90,6 @@ namespace CommodityInfoManagement
                 using (MySqlAdapter adapter = new MySqlAdapter())
                 {
                     dv.RowFilter = "comm_unit_price >= " + lp + " and comm_unit_price <= " + hp;
-                    this.search_result.DataSource = dv;
-                    this.search_result.Columns[0].HeaderCell.Value = "名称";
-                    this.search_result.Columns[1].HeaderCell.Value = "分类";
-                    this.search_result.Columns[2].HeaderCell.Value = "单价";
-                    this.search_result.Columns[3].HeaderCell.Value = "库存";
                 }
             }
             if (hp != 0 && ha != 0)
@@ -105,13 +97,13 @@ namespace CommodityInfoManagement
                 using (MySqlAdapter adapter = new MySqlAdapter())
                 {
                     dv.RowFilter = "comm_stock_amount >= " + la + " and comm_stock_amount <= " + ha + " and comm_unit_price >= " + lp + " and comm_unit_price <= " + hp;
-                    this.search_result.DataSource = dv;
-                    this.search_result.Columns[0].HeaderCell.Value = "名称";
-                    this.search_result.Columns[1].HeaderCell.Value = "分类";
-                    this.search_result.Columns[2].HeaderCell.Value = "单价";
-                    this.search_result.Columns[3].HeaderCell.Value = "库存";
                 }
             }
+            this.search_result.DataSource = dv;
+            this.search_result.Columns[0].HeaderCell.Value = "名称";
+            this.search_result.Columns[1].HeaderCell.Value = "分类";
+            this.search_result.Columns[2].HeaderCell.Value = "单价";
+            this.search_result.Columns[3].HeaderCell.Value = "库存";
         }
 
         private void low_price_MouseClick(object sender, MouseEventArgs e)
@@ -183,5 +175,20 @@ namespace CommodityInfoManagement
                     Convert.ToString(result["comm_unit_price"]), Convert.ToString(result["comm_stock_amount"])))).Show();
             }
         }
-    }
+        
+        private void buy_comm_Click(object sender, EventArgs e)
+        {
+            int comm_amount,comm_id,index = search_result.CurrentRow.Index;
+            comm_amount = Convert.ToInt32(search_result.Rows[index].Cells[3].Value);
+            comm_id = Convert.ToInt32 (search_result.Rows[index].Cells[4].Value);
+            buy_num b = new buy_num();
+            b.info(comm_amount,comm_id,currentUser.Username);
+            b.Show();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+    }   
 }

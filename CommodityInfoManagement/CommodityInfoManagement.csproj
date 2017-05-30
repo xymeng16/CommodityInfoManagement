@@ -52,6 +52,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="buy_num.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buy_num.Designer.cs">
+      <DependentUpon>buy_num.cs</DependentUpon>
+    </Compile>
     <Compile Include="Commodity.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -100,6 +106,9 @@
       <DependentUpon>UserManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
+    <EmbeddedResource Include="buy_num.resx">
+      <DependentUpon>buy_num.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
