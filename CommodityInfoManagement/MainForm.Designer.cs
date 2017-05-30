@@ -30,8 +30,8 @@ namespace CommodityInfoManagement
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comm_search_text = new System.Windows.Forms.TextBox();
             this.comm_search = new System.Windows.Forms.Button();
             this.comm_search_category = new System.Windows.Forms.ComboBox();
@@ -48,7 +48,7 @@ namespace CommodityInfoManagement
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.search_result = new System.Windows.Forms.DataGridView();
-            this.button7 = new System.Windows.Forms.Button();
+            this.off_shelve = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.sign_in = new System.Windows.Forms.Button();
             this.myInfo = new System.Windows.Forms.Button();
@@ -228,38 +228,39 @@ namespace CommodityInfoManagement
             // search_result
             // 
             this.search_result.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.search_result.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.search_result.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.search_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.search_result.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.search_result.DefaultCellStyle = dataGridViewCellStyle6;
             this.search_result.Location = new System.Drawing.Point(6, 22);
             this.search_result.Name = "search_result";
             this.search_result.RowTemplate.Height = 23;
             this.search_result.Size = new System.Drawing.Size(736, 364);
             this.search_result.TabIndex = 0;
             // 
-            // button7
+            // off_shelve
             // 
-            this.button7.Font = new System.Drawing.Font("宋体", 10F);
-            this.button7.Location = new System.Drawing.Point(590, 591);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(71, 24);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "下架";
-            this.button7.UseVisualStyleBackColor = true;
+            this.off_shelve.Font = new System.Drawing.Font("宋体", 10F);
+            this.off_shelve.Location = new System.Drawing.Point(590, 591);
+            this.off_shelve.Name = "off_shelve";
+            this.off_shelve.Size = new System.Drawing.Size(71, 24);
+            this.off_shelve.TabIndex = 9;
+            this.off_shelve.Text = "下架";
+            this.off_shelve.UseVisualStyleBackColor = true;
+            this.off_shelve.Click += new System.EventHandler(this.off_shelve_Click);
             // 
             // button8
             // 
@@ -338,7 +339,6 @@ namespace CommodityInfoManagement
             this.userManagement.TabIndex = 2;
             this.userManagement.Text = "用户管理";
             this.userManagement.UseVisualStyleBackColor = true;
-            this.userManagement.Click += userManagement_Click;
             // 
             // MainForm
             // 
@@ -351,7 +351,7 @@ namespace CommodityInfoManagement
             this.Controls.Add(this.detail);
             this.Controls.Add(this.sign_in);
             this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.off_shelve);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -389,7 +389,7 @@ namespace CommodityInfoManagement
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView search_result;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button off_shelve;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button sign_in;
         public System.Windows.Forms.Button myInfo;
