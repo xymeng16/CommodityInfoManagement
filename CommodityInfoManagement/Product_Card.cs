@@ -19,6 +19,8 @@ namespace CommodityInfoManagement
     public partial class Product_Card : Form
     {
         public const int PUT_AWAY = 0, SHOW_INFO = 1;
+        private bool isUpdate = true;
+        private string oldName;
         private string infoCommand = "insert into comm_info values(" +
             "null, " + 
             "?name, " +
@@ -36,6 +38,23 @@ namespace CommodityInfoManagement
             "(select comm_id from comm_info where comm_name=?name)" +
             ", ?amount, " +
             "?price);";
+        private string updateCommandA = "update comm_info set " +
+            "comm_name=?name , " +
+            "comm_category_id=(select category_id from comm_category where category_name=?category_name) , " +
+            "comm_owner_id=(select user_id from comm_user where username=?username) , " +
+            "comm_image=?image , " +
+            "comm_length=?length , " +
+            "comm_weight=?width , " +
+            "comm_height=?height , " +
+            "comm_weight=?weight , " +
+            "comm_color=?color , " +
+            "comm_shape=?shape , " +
+            "comm_description=?description " +
+            "where comm_name=?oldName;";
+        private string updateCommandB = "update comm_storage_rack set " +
+            "comm_stock_amount=?amount, " +
+            "comm_unit_price=?price " +
+            "where comm_id=(select comm_id from comm_info where comm_name=?name);";
         private void submit_Click(object sender, EventArgs e)
         {
             try
@@ -59,15 +78,25 @@ namespace CommodityInfoManagement
                     adapter.AddParams(new MySqlParameter("description", description.Text == "" ? null : description.Text));
                     adapter.AddParams(new MySqlParameter("amount", amount.Text));
                     adapter.AddParams(new MySqlParameter("price", price.Text));
-                    adapter.ExecuteNonQuery(infoCommand);
-                    adapter.ExecuteNonQuery(stockCommand);
+                    if (isUpdate)
+                    {
+                        adapter.AddParams(new MySqlParameter("oldName", oldName));
+                        adapter.ExecuteNonQuery(updateCommandA);
+                        adapter.ExecuteNonQuery(updateCommandB);
+                    }
+                    else
+                    {
+                        adapter.ExecuteNonQuery(infoCommand);
+                        adapter.ExecuteNonQuery(stockCommand);
+                    }
                 }
-                MessageBox.Show("上架成功");
+                MessageBox.Show((isUpdate?"更新":"上架")+"成功");
                 this.Close();
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.StackTrace, "上架失败！");
+                MessageBox.Show(exception.Message, (isUpdate ? "更新" : "上架") + "失败");
+                throw exception;
             }
         }
         private void button3_Click(object sender, EventArgs e)
@@ -112,6 +141,7 @@ namespace CommodityInfoManagement
         public Product_Card()
         {
             InitializeComponent();
+            isUpdate = false;
             using (MySqlAdapter adapter = new MySqlAdapter())
             {
                 try
@@ -124,23 +154,45 @@ namespace CommodityInfoManagement
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.StackTrace, "数据获取失败！");
+                    MessageBox.Show(e.StackTrace, "分类信息数据获取失败！");
                 }
 
             }
         }
 
-        public Product_Card(Commodity commodity)
+        public Product_Card(Commodity commodity, string path, bool update=false)
         {
             InitializeComponent();
-            var controls = GetAllControls(this);
-            foreach (var c in controls)
+            if (!update)
             {
-                c.Enabled = false;
+                isUpdate = false;
+                var controls = GetAllControls(this);
+                foreach (var c in controls)
+                {
+                    c.Enabled = false;
+                }
+                cancel.Enabled = true;
+                cancel.Focus();
             }
-            cancel.Enabled = true;
-            cancel.Focus();
+            imgPath.Text = path;
+            using (MySqlAdapter adapter = new MySqlAdapter())
+            {
+                try
+                {
+                    var results = adapter.GetDataView("select category_name from comm_category;");
+                    foreach (DataRow s in results.Table.Rows)
+                    {
+                        category.Items.Add(s["category_name"]);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.StackTrace, "分类信息获取失败！");
+                }
+
+            }
             commodity.BindToProductCard(this);
+            oldName = name.Text;
         }
 
         public void SetCommName(string s)

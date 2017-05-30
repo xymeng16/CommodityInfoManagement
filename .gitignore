@@ -1,3 +1,5 @@
 .vs/*
 *.cache
 TemporaryGeneratedFile_*.cs
+/CommodityInfoManagement/bin/Debug/temp
+/CommodityInfoManagement/bin/Debug

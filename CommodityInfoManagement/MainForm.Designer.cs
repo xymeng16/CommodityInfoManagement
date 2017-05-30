@@ -49,7 +49,7 @@ namespace CommodityInfoManagement
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.search_result = new System.Windows.Forms.DataGridView();
             this.off_shelve = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.modify = new System.Windows.Forms.Button();
             this.sign_in = new System.Windows.Forms.Button();
             this.myInfo = new System.Windows.Forms.Button();
             this.detail = new System.Windows.Forms.Button();
@@ -81,7 +81,7 @@ namespace CommodityInfoManagement
             // 
             // comm_search_category
             // 
-            this.comm_search_category.Font = new System.Drawing.Font("宋体", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comm_search_category.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comm_search_category.FormattingEnabled = true;
             this.comm_search_category.Location = new System.Drawing.Point(25, 68);
             this.comm_search_category.Name = "comm_search_category";
@@ -95,7 +95,7 @@ namespace CommodityInfoManagement
             this.groupBox1.Controls.Add(this.comm_search_category);
             this.groupBox1.Controls.Add(this.comm_search);
             this.groupBox1.Controls.Add(this.comm_search_text);
-            this.groupBox1.Font = new System.Drawing.Font("宋体", 10F);
+            this.groupBox1.Font = new System.Drawing.Font("SimSun", 10F);
             this.groupBox1.Location = new System.Drawing.Point(35, 59);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(334, 109);
@@ -114,7 +114,7 @@ namespace CommodityInfoManagement
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.low_price);
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Font = new System.Drawing.Font("宋体", 10F);
+            this.groupBox2.Font = new System.Drawing.Font("SimSun", 10F);
             this.groupBox2.Location = new System.Drawing.Point(420, 59);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(363, 109);
@@ -217,7 +217,7 @@ namespace CommodityInfoManagement
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.search_result);
-            this.groupBox3.Font = new System.Drawing.Font("宋体", 10F);
+            this.groupBox3.Font = new System.Drawing.Font("SimSun", 10F);
             this.groupBox3.Location = new System.Drawing.Point(35, 189);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(748, 395);
@@ -230,7 +230,7 @@ namespace CommodityInfoManagement
             this.search_result.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("SimSun", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -239,7 +239,7 @@ namespace CommodityInfoManagement
             this.search_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("SimSun", 10F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -254,7 +254,7 @@ namespace CommodityInfoManagement
             // 
             // off_shelve
             // 
-            this.off_shelve.Font = new System.Drawing.Font("宋体", 10F);
+            this.off_shelve.Font = new System.Drawing.Font("SimSun", 10F);
             this.off_shelve.Location = new System.Drawing.Point(590, 591);
             this.off_shelve.Name = "off_shelve";
             this.off_shelve.Size = new System.Drawing.Size(71, 24);
@@ -263,19 +263,20 @@ namespace CommodityInfoManagement
             this.off_shelve.UseVisualStyleBackColor = true;
             this.off_shelve.Click += new System.EventHandler(this.off_shelve_Click);
             // 
-            // button8
+            // modify
             // 
-            this.button8.Font = new System.Drawing.Font("宋体", 10F);
-            this.button8.Location = new System.Drawing.Point(700, 591);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(71, 23);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "修改";
-            this.button8.UseVisualStyleBackColor = true;
+            this.modify.Font = new System.Drawing.Font("SimSun", 10F);
+            this.modify.Location = new System.Drawing.Point(700, 591);
+            this.modify.Name = "modify";
+            this.modify.Size = new System.Drawing.Size(71, 23);
+            this.modify.TabIndex = 10;
+            this.modify.Text = "修改";
+            this.modify.UseVisualStyleBackColor = true;
+            this.modify.Click += new System.EventHandler(this.modify_Click);
             // 
             // sign_in
             // 
-            this.sign_in.Font = new System.Drawing.Font("宋体", 10F);
+            this.sign_in.Font = new System.Drawing.Font("SimSun", 10F);
             this.sign_in.Location = new System.Drawing.Point(700, 12);
             this.sign_in.Name = "sign_in";
             this.sign_in.Size = new System.Drawing.Size(76, 27);
@@ -287,7 +288,7 @@ namespace CommodityInfoManagement
             // myInfo
             // 
             this.myInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myInfo.Font = new System.Drawing.Font("宋体", 10F);
+            this.myInfo.Font = new System.Drawing.Font("SimSun", 10F);
             this.myInfo.Location = new System.Drawing.Point(590, 11);
             this.myInfo.Name = "myInfo";
             this.myInfo.Size = new System.Drawing.Size(84, 28);
@@ -298,7 +299,7 @@ namespace CommodityInfoManagement
             // 
             // detail
             // 
-            this.detail.Font = new System.Drawing.Font("宋体", 10F);
+            this.detail.Font = new System.Drawing.Font("SimSun", 10F);
             this.detail.Location = new System.Drawing.Point(35, 590);
             this.detail.Name = "detail";
             this.detail.Size = new System.Drawing.Size(84, 24);
@@ -309,7 +310,7 @@ namespace CommodityInfoManagement
             // 
             // putAway
             // 
-            this.putAway.Font = new System.Drawing.Font("宋体", 10F);
+            this.putAway.Font = new System.Drawing.Font("SimSun", 10F);
             this.putAway.Location = new System.Drawing.Point(481, 591);
             this.putAway.Name = "putAway";
             this.putAway.Size = new System.Drawing.Size(71, 24);
@@ -320,7 +321,7 @@ namespace CommodityInfoManagement
             // 
             // buy_comm
             // 
-            this.buy_comm.Font = new System.Drawing.Font("宋体", 10F);
+            this.buy_comm.Font = new System.Drawing.Font("SimSun", 10F);
             this.buy_comm.Location = new System.Drawing.Point(162, 590);
             this.buy_comm.Name = "buy_comm";
             this.buy_comm.Size = new System.Drawing.Size(84, 24);
@@ -333,7 +334,7 @@ namespace CommodityInfoManagement
             // 
             this.userManagement.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.userManagement.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.userManagement.Font = new System.Drawing.Font("宋体", 10F);
+            this.userManagement.Font = new System.Drawing.Font("SimSun", 10F);
             this.userManagement.Location = new System.Drawing.Point(41, 11);
             this.userManagement.Name = "userManagement";
             this.userManagement.Size = new System.Drawing.Size(84, 28);
@@ -352,14 +353,14 @@ namespace CommodityInfoManagement
             this.Controls.Add(this.buy_comm);
             this.Controls.Add(this.detail);
             this.Controls.Add(this.sign_in);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.modify);
             this.Controls.Add(this.off_shelve);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.userManagement);
             this.Controls.Add(this.myInfo);
-            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
@@ -392,7 +393,7 @@ namespace CommodityInfoManagement
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView search_result;
         private System.Windows.Forms.Button off_shelve;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button modify;
         private System.Windows.Forms.Button sign_in;
         public System.Windows.Forms.Button myInfo;
         private System.Windows.Forms.Button detail;

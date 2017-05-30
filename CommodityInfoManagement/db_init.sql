@@ -56,7 +56,7 @@ create table comm_info(
 	comm_name varchar(255) not null, 
 	comm_category_id smallint unsigned not null, 
     comm_owner_id smallint unsigned not null,
-    comm_image longblob not null,
+    comm_image varchar(255) not null,
     comm_length int,
     comm_width int,
     comm_height int,

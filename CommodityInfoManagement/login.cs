@@ -62,5 +62,31 @@ namespace CommodityInfoManagement
                 }
             }
         }
+
+        private void button_signup_Click(object sender, EventArgs e)
+        {
+            string sqlCommand = String.Format("insert into comm_user values(null, '{0}', sha1('{1}'), now());" +
+                    "insert into comm_user_role values((select user_id from comm_user where username='{0}'), (select role_id from comm_role where role_name='{2}'));",
+                    username.Text, password.Text, Login.RoleStr["消费者"]);
+            try
+            {
+                using (MySqlAdapter adapter = new MySqlAdapter())
+                {
+                    adapter.ExecuteNonQuery(sqlCommand);
+                }
+                MessageBox.Show("注册成功！您的当前身份为：顾客！", "注册成功");
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message,  "注册失败");
+            }
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.UserClosing)
+                System.Environment.Exit(0);
+        }
+
     }
 }

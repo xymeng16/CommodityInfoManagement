@@ -31,9 +31,17 @@ namespace CommodityInfoManagement
                 {
                     MessageBox.Show(e.StackTrace, "数据获取失败！");
                 }
-
+            }
+            if(currentUser.Role!="超级管理员"||currentUser.Role!="管理员")
+            {
+                userManagement.Enabled = false;
+            }
+            if(currentUser.Role=="消费者")
+            {
+                putAway.Enabled = off_shelve.Enabled = modify.Enabled = false;
             }
         }
+        
         public static MainForm GetInstance()
         {
             return instance;
@@ -67,7 +75,8 @@ namespace CommodityInfoManagement
 
         private void putAway_Click(object sender, EventArgs e)
         {
-            (new Product_Card()).Show();
+            (new Product_Card()).ShowDialog();
+            comm_search.PerformClick();
         }
 
         private void comm_search_Click(object sender, EventArgs e)
@@ -192,17 +201,17 @@ namespace CommodityInfoManagement
                     {
                         Directory.CreateDirectory(System.Environment.CurrentDirectory + "\\temp");
                     }
-                    scp.From("/home/commodity/CommodityInfo/Images/" + name + ".jpg", System.Environment.CurrentDirectory + "\\" + name + ".jpg");
+                    scp.From("/home/commodity/CommodityInfo/Images/" + name + ".jpg", System.Environment.CurrentDirectory + "\\temp\\" + name + ".jpg");
                     scp.Close();
                     (new Product_Card(new Commodity(result["comm_name"] as string, result["category_name"]
                         as string, result["username"] as string,
-                        Image.FromFile(System.Environment.CurrentDirectory + "\\" + name + ".jpg"),
-                        Convert.ToString(result["comm_unit_price"]), Convert.ToString(result["comm_stock_amount"])))).Show();
+                        Image.FromFile(System.Environment.CurrentDirectory + "\\temp\\" + name + ".jpg"),
+                        Convert.ToString(result["comm_unit_price"]), Convert.ToString(result["comm_stock_amount"])), System.Environment.CurrentDirectory + "\\temp\\" + name + ".jpg")).ShowDialog();
                 }
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.StackTrace, "数据获取失败！");
+                MessageBox.Show(exception.Message, "数据获取失败！");
             }
         }
 
@@ -218,7 +227,8 @@ namespace CommodityInfoManagement
             comm_id = Convert.ToInt32 (search_result.Rows[index].Cells[4].Value);
             buy_num b = new buy_num();
             b.info(comm_amount,comm_id,currentUser.Username);
-            b.Show();
+            b.ShowDialog();
+            comm_search.PerformClick();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -240,13 +250,51 @@ namespace CommodityInfoManagement
                 adapter.ExecuteNonQuery(sqlcommand2);
                 string sqlcommand3 = string.Format("insert into comm_not_stored values({0},{1})", comm_id, comm_stock_amount);
                 adapter.ExecuteNonQuery(sqlcommand3);
-                comm_search.PerformClick();
+                
             }
+            comm_search.PerformClick();
         }
 
         private void userManagement_Click_1(object sender, EventArgs e)
         {
             (new UserManagement()).ShowDialog();
+        }
+
+        private void modify_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (MySqlAdapter adapter = new MySqlAdapter())
+                {
+                    string name = (string)search_result.CurrentRow.Cells[0].Value;
+                    adapter.AddParams(new MySql.Data.MySqlClient.MySqlParameter("name", name));
+                    var result = adapter.GetDataRow("select comm_name, category_name, comm_unit_price," +
+                        " comm_stock_amount, username from comm_info," +
+                        "comm_category, comm_storage_rack, comm_user " +
+                        "where comm_name=?name and user_id=comm_owner_id " +
+                        "and category_id=comm_category_id and comm_storage_rack.comm_id=comm_info.comm_id");
+                    Scp scp = new Scp("45.76.37.186", "commodity", "mxylls123!@#");
+                    scp.Connect();
+                    if (!Directory.Exists(System.Environment.CurrentDirectory + "\\temp"))
+                    {
+                        Directory.CreateDirectory(System.Environment.CurrentDirectory + "\\temp");
+                    }
+                    scp.From("/home/commodity/CommodityInfo/Images/" + name + ".jpg", 
+                        System.Environment.CurrentDirectory + "\\temp\\" + name + ".jpg");
+                    scp.Close();
+                    (new Product_Card(new Commodity(result["comm_name"] as string, result["category_name"]
+                        as string, result["username"] as string,
+                        Image.FromFile(System.Environment.CurrentDirectory + "\\temp\\" + name + ".jpg"),
+                        Convert.ToString(result["comm_unit_price"]), Convert.ToString(result["comm_stock_amount"])), 
+                        System.Environment.CurrentDirectory + "\\temp\\" + name + ".jpg", true)).ShowDialog();
+                    comm_search.PerformClick();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "数据获取失败！");
+                throw exception;
+            }
         }
     }   
 }

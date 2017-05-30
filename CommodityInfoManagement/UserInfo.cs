@@ -17,6 +17,7 @@ namespace CommodityInfoManagement
             InitializeComponent();
             username.Text = user.Username;
             createTime.Text = user.Datetime.ToString();
+            role.Text = user.Role;
         }
     }
 }

@@ -32,13 +32,15 @@
             this.username = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.createTime = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.role = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 54);
+            this.label1.Location = new System.Drawing.Point(41, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 20);
             this.label1.TabIndex = 0;
@@ -48,7 +50,7 @@
             // 
             this.username.AutoSize = true;
             this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username.Location = new System.Drawing.Point(136, 54);
+            this.username.Location = new System.Drawing.Point(136, 45);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(51, 20);
             this.username.TabIndex = 0;
@@ -58,7 +60,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(41, 92);
+            this.label3.Location = new System.Drawing.Point(41, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 20);
             this.label3.TabIndex = 0;
@@ -68,18 +70,40 @@
             // 
             this.createTime.AutoSize = true;
             this.createTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createTime.Location = new System.Drawing.Point(136, 92);
+            this.createTime.Location = new System.Drawing.Point(136, 86);
             this.createTime.Name = "createTime";
             this.createTime.Size = new System.Drawing.Size(51, 20);
             this.createTime.TabIndex = 0;
             this.createTime.Text = "label1";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(41, 125);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "用户类型：";
+            // 
+            // role
+            // 
+            this.role.AutoSize = true;
+            this.role.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.role.Location = new System.Drawing.Point(136, 125);
+            this.role.Name = "role";
+            this.role.Size = new System.Drawing.Size(51, 20);
+            this.role.TabIndex = 0;
+            this.role.Text = "label1";
+            // 
             // UserInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 169);
+            this.ClientSize = new System.Drawing.Size(386, 183);
+            this.Controls.Add(this.role);
             this.Controls.Add(this.createTime);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.username);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -97,5 +121,7 @@
         private System.Windows.Forms.Label username;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label createTime;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label role;
     }
 }
