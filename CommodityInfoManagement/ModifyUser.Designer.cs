@@ -51,7 +51,7 @@
             this.username.Location = new System.Drawing.Point(114, 34);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(121, 20);
-            this.username.TabIndex = 1;
+            this.username.TabIndex = 0;
             // 
             // label2
             // 

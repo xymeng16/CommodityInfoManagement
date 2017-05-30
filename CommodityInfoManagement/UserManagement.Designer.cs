@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.userList = new System.Windows.Forms.DataGridView();
+            this.deleteUser = new System.Windows.Forms.Button();
+            this.EditUser = new System.Windows.Forms.Button();
+            this.addUser = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userList)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.userList);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(452, 374);
@@ -47,58 +47,62 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "用户列表";
             // 
-            // dataGridView1
+            // userList
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(440, 349);
-            this.dataGridView1.TabIndex = 0;
+            this.userList.AllowUserToAddRows = false;
+            this.userList.AllowUserToDeleteRows = false;
+            this.userList.AllowUserToOrderColumns = true;
+            this.userList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.userList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userList.Location = new System.Drawing.Point(6, 19);
+            this.userList.Name = "userList";
+            this.userList.ReadOnly = true;
+            this.userList.Size = new System.Drawing.Size(440, 349);
+            this.userList.TabIndex = 0;
             // 
-            // button1
+            // deleteUser
             // 
-            this.button1.Location = new System.Drawing.Point(64, 408);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "删除用户";
-            this.button1.UseVisualStyleBackColor = true;
+            this.deleteUser.Location = new System.Drawing.Point(64, 408);
+            this.deleteUser.Name = "deleteUser";
+            this.deleteUser.Size = new System.Drawing.Size(75, 23);
+            this.deleteUser.TabIndex = 1;
+            this.deleteUser.Text = "删除用户";
+            this.deleteUser.UseVisualStyleBackColor = true;
+            this.deleteUser.Click += new System.EventHandler(this.deleteUser_Click);
             // 
-            // button2
+            // EditUser
             // 
-            this.button2.Location = new System.Drawing.Point(200, 408);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "编辑用户";
-            this.button2.UseVisualStyleBackColor = true;
+            this.EditUser.Location = new System.Drawing.Point(200, 408);
+            this.EditUser.Name = "EditUser";
+            this.EditUser.Size = new System.Drawing.Size(75, 23);
+            this.EditUser.TabIndex = 1;
+            this.EditUser.Text = "编辑用户";
+            this.EditUser.UseVisualStyleBackColor = true;
+            this.EditUser.Click += new System.EventHandler(this.EditUser_Click);
             // 
-            // button3
+            // addUser
             // 
-            this.button3.Location = new System.Drawing.Point(335, 408);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "添加用户";
-            this.button3.UseVisualStyleBackColor = true;
+            this.addUser.Location = new System.Drawing.Point(335, 408);
+            this.addUser.Name = "addUser";
+            this.addUser.Size = new System.Drawing.Size(75, 23);
+            this.addUser.TabIndex = 1;
+            this.addUser.Text = "添加用户";
+            this.addUser.UseVisualStyleBackColor = true;
+            this.addUser.Click += new System.EventHandler(this.addUser_Click);
             // 
             // UserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 453);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.addUser);
+            this.Controls.Add(this.EditUser);
+            this.Controls.Add(this.deleteUser);
             this.Controls.Add(this.groupBox1);
             this.Name = "UserManagement";
             this.Text = "用户管理";
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -106,9 +110,9 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView userList;
+        private System.Windows.Forms.Button deleteUser;
+        private System.Windows.Forms.Button EditUser;
+        private System.Windows.Forms.Button addUser;
     }
 }

@@ -27,6 +27,10 @@ namespace CommodityInfoManagement
             RoleStr.Add("卖家", "SHOPKEEPER");
             RoleStr.Add("管理员", "ADMIN");
             RoleStr.Add("超级管理员", "SUPER_USER");
+            RoleStr.Add("CUSTOMER", "消费者");
+            RoleStr.Add("SHOPKEEPER", "卖家");
+            RoleStr.Add("ADMIN", "管理员");
+            RoleStr.Add("SUPER_USER", "超级管理员");
         }
     }
 }
