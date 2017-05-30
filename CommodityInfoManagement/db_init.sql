@@ -142,3 +142,4 @@ values(null, 'su', sha1('mxylls123!@#'), now());
 insert into comm_user_role
 values(1, 4);
 -- Insert superuser
+-- 6glewtIo
