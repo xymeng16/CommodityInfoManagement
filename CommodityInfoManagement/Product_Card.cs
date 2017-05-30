@@ -221,5 +221,12 @@ namespace CommodityInfoManagement
         {
             commImg.Image = img;
         }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            commImg.Dispose();
+            Dispose();
+        }
     }
 }

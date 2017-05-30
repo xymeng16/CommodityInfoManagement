@@ -94,7 +94,12 @@ create table comm_purchasing_log(
     foreign key(comm_id) references comm_info(comm_id),
     foreign key(comm_buyer_id) references comm_user(user_id) on delete cascade on update cascade
 )engine=innodb, character set = utf8;
-
+alter table comm_authority auto_increment=1;
+alter table comm_role auto_increment=1;
+alter table comm_user auto_increment=1;
+alter table comm_category auto_increment=1;
+alter table comm_info auto_increment=1;
+alter table comm_purchasing_log auto_increment=1;
 -- Insert authority
 insert into comm_authority
 values(null, 'READ');
@@ -153,5 +158,33 @@ values(1, 4);
 
 insert into comm_category values(null, '数码产品'), (null, '服装'), (null, '运动用品'), (null, '食品'), (null, '日常用品'), (null, '虚拟物品'), (null, '办公用品');
 
+insert into comm_info values(null, 'aaa', 1, 1, 'aaa.jpg', 111, 222,333,444, 'red', 'cube', 'none'), 
+(null, 'bbb', 1, 1, 'aaa.jpg', 11, 22,33,44, 'black', 'sphere', 'great goods'), 
+(null, 'ccc', 1, 1, 'aaa.jpg', 222, 333,444,555, 'green', 'cube', 'none'), 
+(null, 'ddd', 3, 1, 'aaa.jpg', 111, 222,333,444, 'red', 'cube', 'none'), 
+(null, 'eee', 3, 1, 'aaa.jpg', 111, 222,333,444, 'red', 'cube', 'none'), 
+(null, 'fff', 5, 1, 'aaa.jpg', 111, 222,333,444, 'red', 'cube', 'none');
+
+insert into comm_storage_rack values(15, 100, 10),(16, 200, 20),(17, 300, 5.5),(18, 400, 3.2),(19,23223,1.32),(20,992,23423);
+
+
+
+drop procedure if exists drop_all_tables;
+delimiter $$
+create definer=`commodity`@`%` procedure `drop_all_tables`()
+begin
+	drop table if exists comm_user_role;
+	drop table if exists comm_user_authority;
+	drop table if exists comm_user;
+	drop table if exists comm_storage_rack;
+	drop table if exists comm_purchasing_log;
+	drop table if exists comm_not_stored;
+	drop table if exists comm_role_authority;
+	drop table if exists comm_role;
+	drop table if exists comm_info;
+	drop table if exists comm_category;
+    drop table if exists comm_authority;
+end$$
+delimiter ;
 -- 6glewtIo
 commit work;
