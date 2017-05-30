@@ -32,7 +32,8 @@ namespace CommodityInfoManagement
                     MessageBox.Show(e.StackTrace, "数据获取失败！");
                 }
             }
-            if(currentUser.Role!="超级管理员"||currentUser.Role!="管理员")
+            comm_search_category.Items.Add("选择商品类别...");
+            if (currentUser.Role!="超级管理员"||currentUser.Role!="管理员")
             {
                 userManagement.Enabled = false;
             }
