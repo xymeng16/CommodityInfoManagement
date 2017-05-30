@@ -31,6 +31,10 @@ namespace CommodityInfoManagement
         {
             return currentUser.Username;
         }
+        public static User GetCurrentUser()
+        {
+            return currentUser;
+        }
         private void myInfo_Click(object sender, EventArgs e)
         {
             (new UserInfo(currentUser)).Show();
@@ -152,28 +156,40 @@ namespace CommodityInfoManagement
 
         private void detail_Click(object sender, EventArgs e)
         {
-            using (MySqlAdapter adapter = new MySqlAdapter())
+            try
             {
-                string name = (string) search_result.CurrentRow.Cells[0].Value;
-                adapter.AddParams(new MySql.Data.MySqlClient.MySqlParameter("name", name));
-                var result = adapter.GetDataRow("select comm_name, category_name, comm_unit_price," +
-                    " comm_stock_amount, username from comm_info," +
-                    "comm_category, comm_storage_rack, comm_user " +
-                    "where comm_name=?name and user_id=comm_owner_id " +
-                    "and category_id=comm_category_id and comm_storage_rack.comm_id=comm_info.comm_id");
-                Scp scp = new Scp("45.76.37.186", "commodity", "mxylls123!@#");
-                scp.Connect();
-                if(!Directory.Exists(System.Environment.CurrentDirectory + "\\temp"))
+                using (MySqlAdapter adapter = new MySqlAdapter())
                 {
-                    Directory.CreateDirectory(System.Environment.CurrentDirectory + "\\temp");
+                    string name = (string)search_result.CurrentRow.Cells[0].Value;
+                    adapter.AddParams(new MySql.Data.MySqlClient.MySqlParameter("name", name));
+                    var result = adapter.GetDataRow("select comm_name, category_name, comm_unit_price," +
+                        " comm_stock_amount, username from comm_info," +
+                        "comm_category, comm_storage_rack, comm_user " +
+                        "where comm_name=?name and user_id=comm_owner_id " +
+                        "and category_id=comm_category_id and comm_storage_rack.comm_id=comm_info.comm_id");
+                    Scp scp = new Scp("45.76.37.186", "commodity", "mxylls123!@#");
+                    scp.Connect();
+                    if (!Directory.Exists(System.Environment.CurrentDirectory + "\\temp"))
+                    {
+                        Directory.CreateDirectory(System.Environment.CurrentDirectory + "\\temp");
+                    }
+                    scp.From("/home/commodity/CommodityInfo/Images/" + name + ".jpg", System.Environment.CurrentDirectory + "\\" + name + ".jpg");
+                    scp.Close();
+                    (new Product_Card(new Commodity(result["comm_name"] as string, result["category_name"]
+                        as string, result["username"] as string,
+                        Image.FromFile(System.Environment.CurrentDirectory + "\\" + name + ".jpg"),
+                        Convert.ToString(result["comm_unit_price"]), Convert.ToString(result["comm_stock_amount"])))).Show();
                 }
-                scp.From("/home/commodity/CommodityInfo/Images/" + name + ".jpg", System.Environment.CurrentDirectory + "\\" + name + ".jpg");
-                scp.Close();
-                (new Product_Card(new Commodity(result["comm_name"] as string, result["category_name"]
-                    as string, result["username"] as string,
-                    Image.FromFile(System.Environment.CurrentDirectory + "\\" + name + ".jpg"),
-                    Convert.ToString(result["comm_unit_price"]), Convert.ToString(result["comm_stock_amount"])))).Show();
             }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.StackTrace, "数据获取失败！");
+            }
+        }
+
+        private void userManagement_Click(object sender, EventArgs e)
+        {
+            (new UserManagement()).ShowDialog();
         }
         
         private void buy_comm_Click(object sender, EventArgs e)

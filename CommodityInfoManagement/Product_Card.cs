@@ -114,11 +114,19 @@ namespace CommodityInfoManagement
             InitializeComponent();
             using (MySqlAdapter adapter = new MySqlAdapter())
             {
-                var results = adapter.GetDataView("select category_name from comm_category;");
-                foreach (DataRow s in results.Table.Rows)
+                try
                 {
-                    category.Items.Add(s["category_name"]);
+                    var results = adapter.GetDataView("select category_name from comm_category;");
+                    foreach (DataRow s in results.Table.Rows)
+                    {
+                        category.Items.Add(s["category_name"]);
+                    }
                 }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.StackTrace, "数据获取失败！");
+                }
+
             }
         }
 

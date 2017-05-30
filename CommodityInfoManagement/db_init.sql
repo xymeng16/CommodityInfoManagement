@@ -40,8 +40,8 @@ create table comm_user_role(
 	user_id smallint unsigned,
     role_id smallint unsigned,
     primary key(user_id, role_id),
-    foreign key(user_id) references comm_user(user_id),
-    foreign key(role_id) references comm_role(role_id)
+    foreign key(user_id) references comm_user(user_id) on delete cascade on update cascade,
+    foreign key(role_id) references comm_role(role_id) on delete cascade on update cascade
 )engine=innodb;
 
 -- Table: Commodity Category (comm_category)

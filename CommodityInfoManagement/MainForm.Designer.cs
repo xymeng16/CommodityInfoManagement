@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comm_search_text = new System.Windows.Forms.TextBox();
             this.comm_search = new System.Windows.Forms.Button();
             this.comm_search_category = new System.Windows.Forms.ComboBox();
@@ -79,7 +79,7 @@
             // 
             // comm_search_category
             // 
-            this.comm_search_category.Font = new System.Drawing.Font("宋体", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comm_search_category.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comm_search_category.FormattingEnabled = true;
             this.comm_search_category.Location = new System.Drawing.Point(25, 68);
             this.comm_search_category.Name = "comm_search_category";
@@ -325,7 +325,7 @@
             this.buy_comm.UseVisualStyleBackColor = true;
             this.buy_comm.Click += new System.EventHandler(this.buy_comm_Click);
             // 
-            // button10
+            // userManagement
             // 
             this.button10.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.button10.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -352,7 +352,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.userManagement);
             this.Controls.Add(this.myInfo);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "MainForm";
