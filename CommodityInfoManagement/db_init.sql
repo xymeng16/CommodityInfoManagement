@@ -10,13 +10,13 @@ USE commodity;
 create table comm_authority(    
 	auth_id smallint unsigned primary key auto_increment, 
 	auth_name varchar(24) not null unique
-)engine=innodb;  
+)engine=innodb, character set = utf8;  
 
 -- Table: Role (comm_role)
 create table comm_role(  
     role_id smallint unsigned primary key auto_increment,
     role_name varchar(24) not null unique
-)engine=innodb;
+)engine=innodb, character set = utf8;
 
 -- Table: Role Authority (comm_role_authority)
 create table comm_role_authority(    
@@ -25,7 +25,7 @@ create table comm_role_authority(
     primary key(role_id,auth_id), 
     foreign key(role_id) references comm_role(role_id)  on delete cascade on update cascade,
     foreign key(auth_id) references comm_authority(auth_id)  on delete cascade on update cascade
-)engine=innodb; 
+)engine=innodb, character set = utf8; 
 
 -- Table: User (comm_user)
 create table comm_user(
@@ -33,7 +33,7 @@ create table comm_user(
     username varchar(32) not null unique,
     password char(40) not null,
     create_time datetime not null
-)engine=innodb;
+)engine=innodb, character set = utf8;
 
 -- Table: User Role (comm_user_role)
 create table comm_user_role(
@@ -42,13 +42,13 @@ create table comm_user_role(
     primary key(user_id, role_id),
     foreign key(user_id) references comm_user(user_id) on delete cascade on update cascade,
     foreign key(role_id) references comm_role(role_id) on delete cascade on update cascade
-)engine=innodb;
+)engine=innodb, character set = utf8;
 
 -- Table: Commodity Category (comm_category)
 create table comm_category(
 	category_id smallint unsigned auto_increment primary key,
     category_name varchar(20) not null
-)engine=innodb;
+)engine=innodb, character set = utf8;
 
 -- Table: Commodity Infomation (comm_info)
 create table comm_info(
@@ -66,7 +66,7 @@ create table comm_info(
     comm_description varchar(255),
     foreign key(comm_owner_id) references comm_user(user_id),
     foreign key(comm_category_id) references comm_category(category_id)
-)engine=innodb;
+)engine=innodb, character set = utf8;
 
 -- Table: Commodity Storage Rack (comm_storage_rack)
 create table comm_storage_rack(
@@ -75,7 +75,7 @@ create table comm_storage_rack(
     comm_unit_price float not null,
     foreign key(comm_id) references comm_info(comm_id)
     on delete cascade on update cascade
-)engine=innodb;
+)engine=innodb, character set = utf8;
 
 -- Table: Commodity Not Stored (comm_not_stored)
 create table comm_not_stored(
@@ -83,7 +83,7 @@ create table comm_not_stored(
     comm_remaining_amount int not null,
     foreign key(comm_id) references comm_info(comm_id)
     on delete cascade on update cascade
-)engine=innodb;
+)engine=innodb, character set = utf8;
 
 -- TODO: Commodity Purchasing Log
 create table comm_purchasing_log(
@@ -93,7 +93,7 @@ create table comm_purchasing_log(
     primary key(comm_id, comm_buyer_id),
     foreign key(comm_id) references comm_info(comm_id),
     foreign key(comm_buyer_id) references comm_user(user_id) on delete cascade on update cascade
-)engine=innodb;
+)engine=innodb, character set = utf8;
 
 -- Insert authority
 insert into comm_authority
@@ -150,5 +150,8 @@ values(null, 'su', sha1('mxylls123!@#'), now());
 insert into comm_user_role
 values(1, 4);
 -- Insert superuser
+
+insert into comm_category values(null, '数码产品'), (null, '服装'), (null, '运动用品'), (null, '食品'), (null, '日常用品'), (null, '虚拟物品'), (null, '办公用品');
+
 -- 6glewtIo
 commit work;
