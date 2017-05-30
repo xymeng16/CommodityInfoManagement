@@ -16,11 +16,22 @@ namespace CommodityInfoManagement
         {
             InitializeComponent();
             currentUser = user;
-            comm_search_category.Items.Add("a");
-            comm_search_category.Items.Add("b");
-            comm_search_category.Items.Add("c");
-            comm_search_category.Items.Add("d");
-            comm_search_category.Items.Add("选择商品类别...");
+            using (MySqlAdapter adapter = new MySqlAdapter())
+            {
+                try
+                {
+                    var results = adapter.GetDataView("select category_name from comm_category;");
+                    foreach (DataRow s in results.Table.Rows)
+                    {
+                        comm_search_category.Items.Add(s["category_name"]);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.StackTrace, "数据获取失败！");
+                }
+
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
