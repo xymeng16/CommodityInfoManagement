@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -13,13 +14,22 @@ namespace CommodityInfoManagement
     public partial class Login : Form
     {
         public static Login self;
+        public static NameValueCollection RoleStr = new NameValueCollection();
+        private bool firstTime = true;
         public Login()
         {
             InitializeComponent();
-            Utility.TestDBConnection();
             self = this;
             password.UseSystemPasswordChar = true;
             password.MaxLength = 16;
+            RoleStr.Add("消费者", "CUSTOMER");
+            RoleStr.Add("卖家", "SHOPKEEPER");
+            RoleStr.Add("管理员", "ADMIN");
+            RoleStr.Add("超级管理员", "SUPER_USER");
+            RoleStr.Add("CUSTOMER", "消费者");
+            RoleStr.Add("SHOPKEEPER", "卖家");
+            RoleStr.Add("ADMIN", "管理员");
+            RoleStr.Add("SUPER_USER", "超级管理员");
         }
 
         private void button_signin_Click(object sender, EventArgs e)
@@ -34,8 +44,16 @@ namespace CommodityInfoManagement
                 var row = adapter.GetDataRow(sqlCommand);
                 if(row != null)
                 {
-                    MainForm mainForm = new MainForm(new User((string)row["username"], (string)row["role_name"], (DateTime)row["create_time"]));
-                    mainForm.Show();
+
+                    MainForm.GetInstance().SetCurrentUser(new User((string)row["username"], RoleStr[(string)row["role_name"]].Split(',')[0], (DateTime)row["create_time"]));
+                    if(firstTime == true)
+                    {
+                        firstTime = false;
+                    }
+                    else
+                    {
+                        MainForm.GetInstance().Show();
+                    }
                     this.Hide();
                 }
                 else

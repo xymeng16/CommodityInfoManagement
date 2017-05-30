@@ -87,10 +87,10 @@ create table comm_not_stored(
 
 -- TODO: Commodity Purchasing Log
 create table comm_purchasing_log(
+	purchasing_id smallint unsigned auto_increment primary key,
 	comm_id smallint unsigned,
     comm_buyer_id smallint unsigned,
     comm_amount int not null,
-    primary key(comm_id, comm_buyer_id),
     foreign key(comm_id) references comm_info(comm_id),
     foreign key(comm_buyer_id) references comm_user(user_id) on delete cascade on update cascade
 )engine=innodb, character set = utf8;

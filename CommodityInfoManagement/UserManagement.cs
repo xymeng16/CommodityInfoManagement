@@ -41,7 +41,7 @@ namespace CommodityInfoManagement
 
         private void EditUser_Click(object sender, EventArgs e)
         {
-            (new ModifyUser(new User(userList.CurrentRow.Cells[0].Value as string, User.RoleStr[userList.CurrentRow.Cells[1].Value as string], (DateTime)userList.CurrentRow.Cells[2].Value))).ShowDialog();
+            (new ModifyUser(new User(userList.CurrentRow.Cells[0].Value as string, Login.RoleStr[userList.CurrentRow.Cells[1].Value as string], (DateTime)userList.CurrentRow.Cells[2].Value))).ShowDialog();
             RefreshUserList();
         }
 
