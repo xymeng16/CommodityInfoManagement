@@ -70,7 +70,7 @@ namespace CommodityInfoManagement
                 string comm_category = comm_search_category.Text.Trim();
                 if (string.Compare(comm_category, "选择商品类别...") == 0) { comm_category = ""; }
                 string sqlcommand = "select comm_name as name,category_name,comm_unit_price,comm_stock_amount,comm_info.comm_id from comm_info,comm_category,comm_storage_rack " +
-                                    "where comm_name like '%" + comm_name + "%' and comm_name like '%" + comm_category + "%' and " + 
+                                    "where comm_name like '%" + comm_name + "%' and category_name like '%" + comm_category + "%' and " + 
                                     "comm_info.comm_id = comm_storage_rack.comm_id and comm_info.comm_category_id = comm_category.category_id ";
                 dv = adapter.GetDataView(sqlcommand);
                 this.search_result.DataSource = dv;
@@ -228,9 +228,9 @@ namespace CommodityInfoManagement
                 DataRow dr = adapter.GetDataRow(sqlcommand1);
                 comm_stock_amount = Convert.ToInt32(dr[1]);
                 comm_unit_price = Convert.ToDouble(dr[2]);
-                string sqlcommand2 = "delect from comm_storage_rack where comm_id = " + comm_id;
+                string sqlcommand2 = "delete from comm_storage_rack where comm_id = " + comm_id;
                 adapter.ExecuteNonQuery(sqlcommand2);
-                string sqlcommand3 = string.Format("insert into Commodity Not Stored values({0},{1},{2})", comm_id, comm_stock_amount, comm_unit_price);
+                string sqlcommand3 = string.Format("insert into comm_not_stored values({0},{1})", comm_id, comm_stock_amount);
                 adapter.ExecuteNonQuery(sqlcommand3);
                 comm_search.PerformClick();
             }

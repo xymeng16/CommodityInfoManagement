@@ -27,6 +27,9 @@ namespace CommodityInfoManagement
             {
                 var result = adapter.GetDataView(sqlCommand);
                 userList.DataSource = result;
+                userList.Columns[0].HeaderCell.Value = "用户名";
+                userList.Columns[1].HeaderCell.Value = "角色";
+                userList.Columns[2].HeaderCell.Value = "创建时间";
             }
             userList.Refresh();
         }

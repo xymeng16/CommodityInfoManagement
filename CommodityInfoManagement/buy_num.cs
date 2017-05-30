@@ -39,10 +39,12 @@ namespace CommodityInfoManagement
                     string sqlcommand1 = "update comm_storage_rack set comm_stock_amount = comm_stock_amount - " + buy_num +
                                         " where comm_id = " + comm_id;
                     adapter.ExecuteNonQuery(sqlcommand1);
-                    string sqlcommand2 = "select user_id from comm_user where username = " + username;
+                    string sqlcommand2 = "select user_id from comm_user where username = '" + username +"'";
                     DataRow dr = adapter.GetDataRow(sqlcommand2);
                     int user_id = Convert.ToInt32(dr[0]);
-                    string sqlcommand3 = "insert into userbuy_tb value('" + comm_id + "','" + user_id + "','" + buy_num + "')";
+                    string sqlcommand3 = "insert into comm_purchasing_log value('NULL'," + comm_id + "," + user_id + "," + buy_num + ")";
+                    adapter.ExecuteNonQuery(sqlcommand3);
+                    MessageBox.Show("购买成功！");
                     this.Close();
                 }
             }
