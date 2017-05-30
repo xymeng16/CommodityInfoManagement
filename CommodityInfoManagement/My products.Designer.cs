@@ -33,11 +33,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -102,30 +102,14 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             // 
-            // button3
+            // button6
             // 
-            this.button3.Location = new System.Drawing.Point(29, 25);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(71, 23);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "搜索";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(117, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 23);
-            this.textBox1.TabIndex = 1;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(343, 25);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(71, 23);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "上架";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button6.Location = new System.Drawing.Point(654, 25);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(71, 23);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "修改";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -136,14 +120,30 @@
             this.button5.Text = "下架";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // button4
             // 
-            this.button6.Location = new System.Drawing.Point(654, 25);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(71, 23);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "修改";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button4.Location = new System.Drawing.Point(343, 25);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(71, 23);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "上架";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(117, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(149, 23);
+            this.textBox1.TabIndex = 1;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(29, 25);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(71, 23);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "搜索";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -168,6 +168,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "My_products";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My_products";
             this.Load += new System.EventHandler(this.My_products_Load);
             this.groupBox1.ResumeLayout(false);

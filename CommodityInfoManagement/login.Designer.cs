@@ -46,19 +46,19 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.username);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("SimSun", 10F);
-            this.groupBox1.Location = new System.Drawing.Point(27, 28);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 10F);
+            this.groupBox1.Location = new System.Drawing.Point(27, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(338, 172);
+            this.groupBox1.Size = new System.Drawing.Size(338, 159);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "登录";
             // 
             // button_signin
             // 
-            this.button_signin.Location = new System.Drawing.Point(196, 120);
+            this.button_signin.Location = new System.Drawing.Point(196, 111);
             this.button_signin.Name = "button_signin";
-            this.button_signin.Size = new System.Drawing.Size(71, 28);
+            this.button_signin.Size = new System.Drawing.Size(71, 26);
             this.button_signin.TabIndex = 4;
             this.button_signin.Text = "登陆";
             this.button_signin.UseVisualStyleBackColor = true;
@@ -66,16 +66,16 @@
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(136, 75);
+            this.password.Location = new System.Drawing.Point(136, 69);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(152, 23);
             this.password.TabIndex = 3;
             // 
             // button_signup
             // 
-            this.button_signup.Location = new System.Drawing.Point(79, 120);
+            this.button_signup.Location = new System.Drawing.Point(79, 111);
             this.button_signup.Name = "button_signup";
-            this.button_signup.Size = new System.Drawing.Size(71, 28);
+            this.button_signup.Size = new System.Drawing.Size(71, 26);
             this.button_signup.TabIndex = 9;
             this.button_signup.Text = "注册";
             this.button_signup.UseVisualStyleBackColor = true;
@@ -83,8 +83,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("SimSun", 12F);
-            this.label2.Location = new System.Drawing.Point(29, 75);
+            this.label2.Font = new System.Drawing.Font("宋体", 12F);
+            this.label2.Location = new System.Drawing.Point(29, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 2;
@@ -92,7 +92,7 @@
             // 
             // username
             // 
-            this.username.Location = new System.Drawing.Point(136, 43);
+            this.username.Location = new System.Drawing.Point(136, 40);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(152, 23);
             this.username.TabIndex = 1;
@@ -100,8 +100,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("SimSun", 12F);
-            this.label1.Location = new System.Drawing.Point(29, 43);
+            this.label1.Font = new System.Drawing.Font("宋体", 12F);
+            this.label1.Location = new System.Drawing.Point(29, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 16);
             this.label1.TabIndex = 0;
@@ -109,11 +109,12 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 251);
+            this.ClientSize = new System.Drawing.Size(394, 232);
             this.Controls.Add(this.groupBox1);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "login";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
